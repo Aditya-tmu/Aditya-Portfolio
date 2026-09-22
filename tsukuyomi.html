@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tsukuyomi — Itachi's Genjutsu</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%; height: 100%;
+    background: #000;
+    overflow: hidden;
+    font-family: 'Georgia', serif;
+  }
+
+  #canvas { position: absolute; inset: 0; }
+
+  #overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  #title {
+    font-size: clamp(28px, 6vw, 72px);
+    font-weight: 700;
+    color: #cc0000;
+    text-shadow:
+      0 0 20px #ff0000aa,
+      0 0 60px #cc000066,
+      0 0 100px #88000033;
+    letter-spacing: 0.15em;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    font-family: 'Georgia', serif;
+  }
+  #title.show { opacity: 1; transform: scale(1); }
+
+  #subtitle {
+    font-size: clamp(12px, 2.5vw, 22px);
+    color: #880000;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-top: 12px;
+    opacity: 0;
+    transition: opacity 2s ease 0.8s;
+    font-family: 'Georgia', serif;
+  }
+  #subtitle.show { opacity: 1; }
+
+  #kanji {
+    position: absolute;
+    font-size: clamp(60px, 14vw, 160px);
+    color: rgba(180,0,0,0.07);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+    font-family: serif;
+    letter-spacing: 8px;
+  }
+
+  #info {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(150,0,0,0.6);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 1.5s ease 2.5s;
+  }
+  #info.show { opacity: 1; }
+
+  #restart {
+    position: absolute;
+    bottom: 20px;
+    right: 28px;
+    background: rgba(100,0,0,0.35);
+    border: 1px solid rgba(200,0,0,0.4);
+    color: rgba(220,100,100,0.9);
+    padding: 8px 18px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    z-index: 20;
+    border-radius: 3px;
+    font-family: Georgia, serif;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  #restart:hover {
+    background: rgba(160,0,0,0.5);
+    border-color: rgba(255,0,0,0.7);
+  }
+
+  #sharingan-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.8) 100%);
+    z-index: 5;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div id="sharingan-overlay"></div>
+<div id="kanji">月読</div>
+<div id="overlay">
+  <div id="title">月 読</div>
+  <div id="subtitle">Tsukuyomi</div>
+</div>
+<div id="info">Time within the genjutsu is seventy-two hours — only seconds in reality</div>
+<button id="restart">↺ Cast Again</button>
+
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let W, H, cx, cy;
+let frame = 0;
+let phase = 0;
+let particles = [];
+let bloodDrops = [];
+let cracks = [];
+let ripples = [];
+let sharinganAngle = 0;
+let moonOpacity = 0;
+let titleShown = false;
+let phaseTimer = 0;
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  cx = W / 2;
+  cy = H / 2;
+}
+resize();
+window.addEventListener('resize', resize);
+
+function rnd(a, b) { return a + Math.random() * (b - a); }
+
+function initParticles() {
+  particles = [];
+  for (let i = 0; i < 120; i++) {
+    particles.push({
+      x: rnd(0, W), y: rnd(0, H),
+      vx: rnd(-0.3, 0.3), vy: rnd(-0.15, -0.6),
+      size: rnd(0.5, 2.5),
+      alpha: rnd(0.1, 0.7),
+      life: rnd(0, 1)
+    });
+  }
+}
+
+function initCracks() {
+  cracks = [];
+  function buildBranch(x, y, angle, len, depth) {
+    if (depth < 0 || len < 6) return;
+    const ex = x + Math.cos(angle) * len;
+    const ey = y + Math.sin(angle) * len;
+    cracks.push({ x1: x, y1: y, x2: ex, y2: ey, depth, progress: 0, delay: (3 - depth) * 0.08 + rnd(0, 0.1) });
+    if (depth > 0) {
+      buildBranch(ex, ey, angle + rnd(0.3, 0.7), len * rnd(0.5, 0.7), depth - 1);
+      buildBranch(ex, ey, angle - rnd(0.3, 0.7), len * rnd(0.4, 0.6), depth - 1);
+    }
+  }
+  const numCracks = 7;
+  for (let i = 0; i < numCracks; i++) {
+    const angle = (i / numCracks) * Math.PI * 2 + rnd(-0.2, 0.2);
+    buildBranch(cx, cy, angle, rnd(60, 120), 3);
+  }
+}
+
+function initBlood() {
+  bloodDrops = [];
+  for (let i = 0; i < 40; i++) {
+    bloodDrops.push({
+      x: rnd(cx - 80, cx + 80),
+      y: rnd(cy - 120, cy + 120),
+      vy: rnd(0.4, 1.8),
+      size: rnd(1.5, 5),
+      alpha: rnd(0.5, 1),
+      trail: [],
+      active: false,
+      delay: rnd(0, 3)
+    });
+  }
+}
+
+initParticles();
+initCracks();
+initBlood();
+
+function drawMoon(t) {
+  const moonR = Math.min(W, H) * 0.22;
+  const pulse = 1 + Math.sin(t * 0.8) * 0.012;
+
+  ctx.save();
+  const glow = ctx.createRadialGradient(cx, cy * 0.55, moonR * 0.3, cx, cy * 0.55, moonR * 2.5);
+  glow.addColorStop(0, `rgba(160,0,0,${0.18 * moonOpacity})`);
+  glow.addColorStop(0.4, `rgba(100,0,0,${0.12 * moonOpacity})`);
+  glow.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, W, H);
+
+  const moonY = cy * 0.55;
+  const mgrad = ctx.createRadialGradient(cx - moonR * 0.25, moonY - moonR * 0.2, moonR * 0.05, cx, moonY, moonR * pulse);
+  mgrad.addColorStop(0, `rgba(220,30,30,${moonOpacity})`);
+  mgrad.addColorStop(0.4, `rgba(180,0,0,${moonOpacity})`);
+  mgrad.addColorStop(0.75, `rgba(120,0,0,${moonOpacity * 0.95})`);
+  mgrad.addColorStop(1, `rgba(60,0,0,${moonOpacity * 0.7})`);
+  ctx.beginPath();
+  ctx.arc(cx, moonY, moonR * pulse, 0, Math.PI * 2);
+  ctx.fillStyle = mgrad;
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(cx, moonY, moonR * pulse + 4, 0, Math.PI * 2);
+  ctx.strokeStyle = `rgba(200,0,0,${0.35 * moonOpacity})`;
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  for (let r = 1; r <= 3; r++) {
+    ctx.beginPath();
+    ctx.arc(cx, moonY, moonR * pulse + r * 18, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(160,0,0,${(0.15 - r * 0.04) * moonOpacity})`;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  }
+
+  ctx.restore();
+  return { x: cx, y: moonY, r: moonR };
+}
+
+function drawSharingan(t) {
+  const sr = Math.min(W, H) * 0.055;
+  const sx = cx, sy = cy * 0.55;
+  sharinganAngle += 0.008;
+
+  ctx.save();
+  ctx.globalAlpha = Math.min(moonOpacity * 1.4, 1);
+
+  ctx.beginPath();
+  ctx.arc(sx, sy, sr, 0, Math.PI * 2);
+  ctx.fillStyle = '#050000';
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(sx, sy, sr * 0.38, 0, Math.PI * 2);
+  ctx.fillStyle = '#0a0000';
+  ctx.fill();
+
+  const tomoe = 3;
+  for (let i = 0; i < tomoe; i++) {
+    const a = sharinganAngle + (i / tomoe) * Math.PI * 2;
+    const tx = sx + Math.cos(a) * sr * 0.56;
+    const ty = sy + Math.sin(a) * sr * 0.56;
+    ctx.save();
+    ctx.translate(tx, ty);
+    ctx.rotate(a + Math.PI / 2);
+    ctx.beginPath();
+    ctx.arc(0, 0, sr * 0.16, 0, Math.PI * 2);
+    ctx.fillStyle = '#cc0000';
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(0, sr * 0.16);
+    ctx.quadraticCurveTo(sr * 0.16, sr * 0.32, 0, sr * 0.45);
+    ctx.quadraticCurveTo(-sr * 0.08, sr * 0.28, 0, sr * 0.16);
+    ctx.fillStyle = '#cc0000';
+    ctx.fill();
+    ctx.restore();
+  }
+
+  ctx.beginPath();
+  ctx.arc(sx, sy, sr * 0.22, 0, Math.PI * 2);
+  ctx.fillStyle = '#000';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(sx - sr * 0.07, sy - sr * 0.07, sr * 0.05, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawFigure(t) {
+  if (moonOpacity < 0.3) return;
+  const a = Math.min((moonOpacity - 0.3) / 0.7, 1);
+  const fw = Math.min(W, H) * 0.13;
+  const fh = fw * 2.6;
+  const fx = cx;
+  const fy = cy * 0.55 + Math.min(W, H) * 0.27;
+  const sway = Math.sin(t * 0.4) * 3;
+
+  ctx.save();
+  ctx.globalAlpha = a * 0.85;
+  ctx.translate(fx + sway, fy);
+
+  ctx.beginPath();
+  ctx.moveTo(-fw * 0.7, 0);
+  ctx.lineTo(fw * 0.7, 0);
+  ctx.moveTo(-fw * 0.7, 0);
+  ctx.lineTo(-fw * 0.9, fh * 0.5);
+  ctx.moveTo(fw * 0.7, 0);
+  ctx.lineTo(fw * 0.9, fh * 0.5);
+  ctx.strokeStyle = `rgba(180,0,0,${a * 0.6})`;
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.ellipse(0, -fh * 0.6, fw * 0.15, fw * 0.15, 0, 0, Math.PI * 2);
+  ctx.fillStyle = `rgba(20,0,0,${a})`;
+  ctx.fill();
+  ctx.strokeStyle = `rgba(140,0,0,${a * 0.8})`;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(0, -fh * 0.45);
+  ctx.lineTo(0, fh * 0.3);
+  ctx.strokeStyle = `rgba(30,0,0,${a})`;
+  ctx.lineWidth = fw * 0.12;
+  ctx.lineCap = 'round';
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(0, fh * 0.3);
+  ctx.lineTo(-fw * 0.25, fh * 0.75);
+  ctx.moveTo(0, fh * 0.3);
+  ctx.lineTo(fw * 0.25, fh * 0.75);
+  ctx.lineWidth = fw * 0.09;
+  ctx.stroke();
+
+  for (let s = 0; s < 8; s++) {
+    const sx2 = rnd(-fw * 0.3, fw * 0.3);
+    const sy2 = rnd(-fh * 0.2, fh * 0.6);
+    const sr2 = rnd(1, 3);
+    ctx.beginPath();
+    ctx.arc(sx2, sy2, sr2, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(200,0,0,${rnd(0.3, 0.8) * a})`;
+    ctx.fill();
+  }
+  ctx.restore();
+}
+
+function drawCracks(t) {
+  if (phase < 2) return;
+  const crackAlpha = Math.min((phase - 2) * 0.5, 1);
+  ctx.save();
+  ctx.globalAlpha = crackAlpha * 0.7;
+  cracks.forEach(c => {
+    if (c.progress < c.delay) { c.progress += 0.012; return; }
+    const p = Math.min((c.progress - c.delay) * 3, 1);
+    c.progress += 0.012;
+    const ex = c.x1 + (c.x2 - c.x1) * p;
+    const ey = c.y1 + (c.y2 - c.y1) * p;
+    ctx.beginPath();
+    ctx.moveTo(c.x1, c.y1);
+    ctx.lineTo(ex, ey);
+    ctx.strokeStyle = `rgba(180,0,0,${0.4 + c.depth * 0.15})`;
+    ctx.lineWidth = c.depth === 3 ? 2 : c.depth === 2 ? 1.2 : 0.7;
+    ctx.stroke();
+  });
+  ctx.restore();
+}
+
+function drawBlood(t) {
+  if (phase < 2) return;
+  const ba = Math.min((phase - 2) * 0.6, 1);
+  bloodDrops.forEach(d => {
+    if (!d.active) {
+      d.delay -= 0.016;
+      if (d.delay <= 0) d.active = true;
+      return;
+    }
+    d.trail.push({ x: d.x, y: d.y, a: d.alpha });
+    if (d.trail.length > 18) d.trail.shift();
+    d.y += d.vy * (1 + phase * 0.2);
+    if (d.y > H + 20) {
+      d.y = rnd(cy - 150, cy + 50);
+      d.x = rnd(cx - 100, cx + 100);
+      d.trail = [];
+    }
+    d.trail.forEach((tp, i) => {
+      const tr = i / d.trail.length;
+      ctx.beginPath();
+      ctx.arc(tp.x, tp.y, d.size * tr * 0.7, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(160,0,0,${tp.a * tr * ba * 0.6})`;
+      ctx.fill();
+    });
+    ctx.beginPath();
+    ctx.arc(d.x, d.y, d.size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(200,0,0,${d.alpha * ba})`;
+    ctx.fill();
+  });
+}
+
+function drawParticles(t) {
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+    p.life += 0.003;
+    if (p.y < -5 || p.life > 1) {
+      p.x = rnd(0, W);
+      p.y = H + 5;
+      p.life = 0;
+      p.alpha = rnd(0.1, 0.6);
+    }
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(140,0,0,${p.alpha * moonOpacity})`;
+    ctx.fill();
+  });
+}
+
+function drawRipples(t) {
+  ripples = ripples.filter(r => r.a > 0.01);
+  ripples.forEach(r => {
+    r.r += 3;
+    r.a *= 0.95;
+    ctx.beginPath();
+    ctx.arc(r.x, r.y, r.r, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(180,0,0,${r.a})`;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  });
+}
+
+function drawVignette() {
+  const vg = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(W, H) * 0.7);
+  vg.addColorStop(0, 'rgba(0,0,0,0)');
+  vg.addColorStop(0.6, 'rgba(0,0,0,0.3)');
+  vg.addColorStop(1, 'rgba(0,0,0,0.95)');
+  ctx.fillStyle = vg;
+  ctx.fillRect(0, 0, W, H);
+}
+
+function drawScanlines() {
+  if (moonOpacity < 0.3) return;
+  ctx.save();
+  ctx.globalAlpha = 0.04 * moonOpacity;
+  for (let y = 0; y < H; y += 3) {
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, y, W, 1);
+  }
+  ctx.restore();
+}
+
+function drawGrid() {
+  if (phase < 1.5) return;
+  const ga = Math.min((phase - 1.5) * 0.3, 0.08);
+  ctx.save();
+  ctx.globalAlpha = ga;
+  ctx.strokeStyle = '#660000';
+  ctx.lineWidth = 0.5;
+  const step = 60;
+  for (let x = 0; x < W; x += step) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+  }
+  for (let y = 0; y < H; y += step) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function triggerRipple() {
+  ripples.push({ x: cx, y: cy * 0.55, r: 5, a: 0.8 });
+}
+
+let rippleTimer = 0;
+
+function animate() {
+  frame++;
+  phaseTimer++;
+  const t = frame * 0.016;
+
+  if (phase < 4) phase += 0.004;
+
+  if (moonOpacity < 1) moonOpacity = Math.min(moonOpacity + 0.005, 1);
+
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, W, H);
+
+  drawGrid();
+  drawParticles(t);
+  drawMoon(t);
+  if (moonOpacity > 0.5) drawSharingan(t);
+  drawFigure(t);
+  drawCracks(t);
+  drawBlood(t);
+  drawRipples(t);
+  drawVignette();
+  drawScanlines();
+
+  rippleTimer++;
+  if (rippleTimer % 90 === 0 && moonOpacity > 0.6) triggerRipple();
+
+  if (!titleShown && moonOpacity > 0.55) {
+    titleShown = true;
+    document.getElementById('title').classList.add('show');
+    document.getElementById('subtitle').classList.add('show');
+    document.getElementById('info').classList.add('show');
+  }
+
+  requestAnimationFrame(animate);
+}
+
+document.getElementById('restart').addEventListener('click', () => {
+  phase = 0;
+  moonOpacity = 0;
+  titleShown = false;
+  frame = 0;
+  phaseTimer = 0;
+  ripples = [];
+  initBlood();
+  initCracks();
+  document.getElementById('title').classList.remove('show');
+  document.getElementById('subtitle').classList.remove('show');
+  document.getElementById('info').classList.remove('show');
+  setTimeout(() => {
+    if (!titleShown && moonOpacity > 0.55) {
+      titleShown = true;
+      document.getElementById('title').classList.add('show');
+      document.getElementById('subtitle').classList.add('show');
+    }
+  }, 6000);
+});
+
+canvas.addEventListener('click', (e) => {
+  ripples.push({ x: e.clientX, y: e.clientY, r: 5, a: 0.9 });
+});
+
+animate();
+</script>
+</body>
+</html>
