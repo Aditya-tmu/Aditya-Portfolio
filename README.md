@@ -12,10 +12,10 @@
 ## 🌌 Overview
 Welcome to the official repository of **AK-OS: Shinobi Architecture Edition**, a high-end, multi-mode developer portfolio engineered for **Aditya Kumar**. Built with pure HTML5, CSS3 3D glassmorphism, and Three.js, this portfolio opens by default in a heroic **Naruto Anime Theme (Leaf Orange & Rasengan Cyan)**, and features an interactive **Shinobi Mode Engine** allowing visitors to experience dynamic transitions and full-screen cinematic entrance animations:
 
-- **🍥 Naruto Mode (Default)**: Will of Fire, swirling 3D Rasengan orb, golden chakra particle nebula, and Konoha styling.
-- **👁️ Tsukuyomi Mode (Itachi)**: Full-screen cinematic entrance (crucifix silhouette, blood drops, reality cracks, crimson Blood Moon, Mangekyou Sharingan, and 30+ 3D flocking crows).
+- **🍥 Naruto Mode (Default)**: Will of Fire, organic 3D tumbling Konoha leaves in dynamic wind currents, swirling logarithmic Archimedean chakra vortex, and golden glow particle nebula.
+- **👁️ Tsukuyomi Mode (Itachi)**: Full-screen cinematic entrance (crucifix silhouette, blood drops, reality cracks, crimson Blood Moon, Mangekyou Sharingan, flocking crows, and falling black feathers).
 - **🦊 Kurama Mode (KCM)**: Blazing golden-orange chakra explosion, Nine-Tails shroud, and Magatama 3D orbs.
-- **🟣 Pain Mode (Rinnegan)**: Concentric gravitational shockwaves, Shinra Tensei (Almighty Push), and Amegakure rain.
+- **🟣 Pain Mode (Rinnegan)**: Concentric gravitational shockwaves, Shinra Tensei (Almighty Push), and Amegakure atmospheric rain.
 - **⚡ Sasuke Mode (Chidori)**: Chidori lightning flash, electric cyan arcs, and Susanoo violet flame lattice.
 - **↺ Release (Kai)**: Dispel any active special mode and smoothly return to the default Naruto theme.
 
@@ -23,7 +23,7 @@ Welcome to the official repository of **AK-OS: Shinobi Architecture Edition**, a
 
 ## 🛠️ Shinobi Tech Stack
 - **Frontend Engine**: Pure HTML5, Modern CSS3 (Custom 3D Tilt & Shinobi Glassmorphism)
-- **3D Visual Effects**: [Three.js](https://threejs.org/) (Interactive mode-specific 3D scenes: Rasengan, Blood Moon, Crows, Kurama Core, Rinnegan Rings, Chidori Lattice)
+- **3D Visual Effects**: [Three.js](https://threejs.org/) (Interactive mode-specific organic 3D scenes: 3D tumbling Konoha leaves, Archimedean chakra vortex, Blood Moon, Crows, Kurama Core, Rinnegan Rings, Chidori Lattice)
 - **Cinematic Entrance Engine**: In-browser canvas animation sequences inspired by `tsukuyomi.html`
 - **Data Uplink**: GitHub REST API live synchronization
 - **Comms Protocol**: EmailJS direct transmission & WhatsApp uplink
