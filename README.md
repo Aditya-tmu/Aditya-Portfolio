@@ -2,8 +2,8 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Theme-Futuristic%20AI-cyan?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Built%20With-Purpose-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Theme-Cyberpunk%20Glassmorphism-cyan?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Visuals-Three.js%203D-blue?style=for-the-badge" />
 </div>
 
 ---
@@ -12,26 +12,28 @@
 Welcome to the official repository of **AK-OS**, a high-end, futuristic developer portfolio engineered for maximum visual impact and smooth interactivity. Built for **Aditya Kumar**, this system bridges the gap between deep-space aesthetics and professional software engineering.
 
 ## 🛠️ System Core (Tech Stack)
-- **Frontend Engine**: Pure HTML5, CSS3 (Custom Glassmorphism)
-- **Visual Effects**: [Three.js](https://threejs.org/) (High-performance particle field)
+- **Frontend Engine**: Pure HTML5, Modern CSS3 (Custom Glassmorphism & 3D Tilt)
+- **3D Visual Effects**: [Three.js](https://threejs.org/) (Interactive 3D wireframe core & mouse-parallax particle field)
 - **Data Uplink**: GitHub REST API Integration
-- **Communications**: EmailJS Protocol & WhatsApp Link
-- **Interface**: Custom Terminal CLI Mode
+- **Communications**: EmailJS Protocol & WhatsApp Uplink
+- **Terminal**: Custom In-Browser CLI Interface (`~` or `Ctrl+K`)
 
 ## 📡 Key Features
-- **Neural Link Interface**: Dynamic background with mouse-parallax particle field.
+- **3D Cyber Core & Particle Field**: Dual-layer particle nebula and interactive rotating 3D crystal reacting to cursor coordinates and scroll depth.
+- **Interactive 3D Tilt Cards**: Realistic holographic glare and perspective tilt on project and skill cards.
+- **Featured Builds**: Live showcase of **Vindywashini Books** (Desktop Accounting & GST Filing Suite), **SkillNest** (AI Student Marketplace), and **Invoice Generator Pro**.
 - **Holographic Notifications**: Real-time system feedback for user actions.
-- **AK-OS Terminal**: Fully functional command-line interface for power users.
-- **Dynamic Projects**: Auto-injected project cards with detail modals and live source links.
-- **Responsive Architecture**: Fully optimized for mobile, tablet, and desktop environments.
+- **AK-OS Terminal**: Fully functional command-line interface for power users with rich command set.
+- **Responsive Architecture**: Fully optimized for mobile, tablet, and ultra-wide desktop environments.
 - **Live Git Stats**: Real-time synchronization with GitHub repositories.
 
 ## 📁 Repository Structure
 ```text
-├── index.html          # Main System Interface
+├── index.html          # Main System Interface & 3D Engine
 ├── assets/
-│   ├── images/         # Project & Profile Visuals
-│   └── audio/          # (Optional) System SFX
+│   └── images/         # Project & Profile Visuals
+├── components/         # Modular Component Logic
+├── scripts/            # Modular Script Logic
 └── README.md           # System Documentation
 ```
 
