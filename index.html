@@ -3,34 +3,42 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Aditya Kumar — Software Engineer & Full-Stack Developer. Specialized in building scalable web architectures, desktop systems, and AI integration.">
-<meta name="theme-color" content="#020509">
-<title>Aditya Kumar — Software Engineer | AK-OS Portfolio</title>
+<meta name="description" content="Aditya Kumar — Software Engineer & Full-Stack Architect. Itachi Uchiha / Genjutsu Edition Portfolio.">
+<meta name="theme-color" content="#060204">
+<title>Aditya Kumar — Software Engineer // Itachi Edition</title>
 
 <!-- PRECONNECT FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
   :root {
-    --bg: #020509;
-    --bg2: #050d18;
-    --bg-card: rgba(5, 14, 26, 0.78);
-    --bg-card-hover: rgba(8, 22, 40, 0.92);
-    --cyan: #00f5ff;
-    --cyan2: #00bcd4;
-    --blue: #0a84ff;
-    --purple: #9d4edd;
-    --neon: #39ff14;
-    --gold: #ffd700;
-    --glass: rgba(0, 245, 255, 0.035);
-    --glass-border: rgba(0, 245, 255, 0.16);
-    --glass-border-hover: rgba(0, 245, 255, 0.45);
-    --text: #c8e6f5;
-    --text-dim: #7aa5c0;
-    --muted: #4a7090;
+    --bg-void: #040103;
+    --bg-shadow: #0a0307;
+    --bg-card: rgba(14, 4, 8, 0.82);
+    --bg-card-hover: rgba(26, 6, 14, 0.94);
+    
+    /* Itachi Blood & Chakra Palette */
+    --crimson: #ff0033;
+    --crimson-glow: rgba(255, 0, 51, 0.6);
+    --blood-red: #c40026;
+    --dark-crimson: #660012;
+    --amaterasu: #08000d;
+    --amaterasu-flame: #a824d6;
+    --ember: #ff4d00;
+    --ember-gold: #ffaa00;
+    
+    --glass-border: rgba(255, 0, 51, 0.22);
+    --glass-border-hover: rgba(255, 0, 51, 0.65);
+    
+    --text-white: #fff5f6;
+    --text-dim: #c29da5;
+    --text-muted: #6e4d55;
+    
+    --font-ninja: 'Cinzel', serif;
+    --font-code: 'JetBrains Mono', 'Share Tech Mono', monospace;
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -38,114 +46,118 @@
   html {
     scroll-behavior: smooth;
     scrollbar-width: thin;
-    scrollbar-color: var(--cyan) var(--bg);
+    scrollbar-color: var(--crimson) var(--bg-void);
   }
 
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--bg);
-  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg-void); }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--cyan), var(--blue));
+    background: linear-gradient(180deg, var(--crimson), var(--dark-crimson));
     border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+    box-shadow: 0 0 10px var(--crimson-glow);
   }
 
   body {
-    background: var(--bg);
-    color: var(--text);
+    background: var(--bg-void);
+    color: var(--text-white);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     cursor: none;
     line-height: 1.6;
     position: relative;
     background-image: 
-      radial-gradient(circle at 15% 15%, rgba(0, 245, 255, 0.04) 0%, transparent 40%),
-      radial-gradient(circle at 85% 65%, rgba(10, 132, 255, 0.05) 0%, transparent 45%),
-      radial-gradient(circle at 50% 90%, rgba(157, 78, 221, 0.04) 0%, transparent 50%);
+      radial-gradient(circle at 80% 20%, rgba(255, 0, 51, 0.08) 0%, transparent 45%),
+      radial-gradient(circle at 15% 65%, rgba(100, 0, 20, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 50% 90%, rgba(30, 0, 40, 0.15) 0%, transparent 60%);
   }
 
-  /* ── CYBER BACKGROUND GRID ── */
-  .cyber-grid {
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    pointer-events: none;
-    z-index: 0;
-    background-size: 60px 60px;
-    background-image: 
-      linear-gradient(to right, rgba(0, 245, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
-    mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%, transparent 80%);
-  }
-
-  /* ── CUSTOM CURSOR ── */
-  #cursor {
-    width: 10px; height: 10px;
-    background: var(--cyan);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 100000;
-    transform: translate(-50%,-50%);
-    transition: transform 0.06s, background 0.2s, box-shadow 0.2s;
-    box-shadow: 0 0 12px var(--cyan), 0 0 24px var(--cyan);
-  }
-  #cursor-ring {
-    width: 38px; height: 38px;
-    border: 1.5px solid rgba(0, 245, 255, 0.45);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 99999;
-    transform: translate(-50%,-50%);
-    transition: transform 0.16s ease-out, width 0.25s, height 0.25s, border-color 0.25s, background-color 0.25s;
-    backdrop-filter: blur(1px);
-  }
-
-  /* ── 3D CANVAS BACKGROUND ── */
+  /* ── 3D CANVAS & GENJUTSU BACKDROP ── */
   #bg-canvas {
-    position: fixed; top: 0; left: 0;
+    position: fixed; top:0; left:0;
     width: 100vw; height: 100vh;
     z-index: 1; pointer-events: none;
   }
 
-  /* ── TOP NAV ── */
+  .genjutsu-overlay {
+    position: fixed; inset: 0; pointer-events: none; z-index: 2;
+    background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.75) 100%);
+  }
+
+  /* Ambient Tsukuyomi Blood Vignette */
+  .tsukuyomi-vignette {
+    position: fixed; inset: 0; pointer-events: none; z-index: 3;
+    box-shadow: inset 0 0 120px rgba(255, 0, 51, 0.12);
+    transition: box-shadow 0.8s ease, filter 0.8s ease;
+  }
+  body.tsukuyomi-active .tsukuyomi-vignette {
+    box-shadow: inset 0 0 180px rgba(255, 0, 51, 0.45);
+    background: rgba(255, 0, 40, 0.08);
+  }
+
+  /* ── CUSTOM SHARINGAN CURSOR ── */
+  #cursor {
+    width: 12px; height: 12px;
+    background: var(--crimson);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 100000;
+    transform: translate(-50%,-50%);
+    transition: transform 0.05s, background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 14px var(--crimson), 0 0 28px var(--crimson);
+  }
+  #cursor-ring {
+    width: 42px; height: 42px;
+    border: 1.5px solid rgba(255, 0, 51, 0.6);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 99999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.15s ease-out, width 0.25s, height 0.25s, border-color 0.25s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #cursor-ring::after {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 0, 51, 0.7);
+    box-shadow: 0 0 8px var(--crimson);
+  }
+
+  /* ── NAVIGATION ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
     z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 18px 60px;
-    background: rgba(2, 5, 9, 0.82);
+    background: rgba(6, 2, 4, 0.85);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(0, 245, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 0, 51, 0.18);
     transition: all 0.3s ease;
   }
   .nav-logo {
-    font-family: 'Orbitron', monospace;
+    font-family: var(--font-ninja);
     font-weight: 900;
-    font-size: 1.3rem;
-    color: var(--cyan);
+    font-size: 1.35rem;
+    color: var(--crimson);
     letter-spacing: 3px;
-    text-shadow: 0 0 15px rgba(0, 245, 255, 0.6);
+    text-shadow: 0 0 15px rgba(255, 0, 51, 0.7);
     text-decoration: none;
-    display: flex; align-items: center; gap: 8px;
+    display: flex; align-items: center; gap: 10px;
   }
-  .nav-logo-badge {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.6rem;
-    padding: 2px 7px;
-    background: rgba(0, 245, 255, 0.12);
-    border: 1px solid rgba(0, 245, 255, 0.3);
+  .nav-logo-kanji {
+    font-size: 0.95rem;
+    color: #ff3355;
+    background: rgba(255, 0, 51, 0.12);
+    border: 1px solid rgba(255, 0, 51, 0.35);
     border-radius: 4px;
-    color: var(--cyan);
-    letter-spacing: 1px;
+    padding: 2px 7px;
+    letter-spacing: 2px;
   }
   .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
   .nav-links a {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.8rem;
+    font-family: var(--font-code);
+    font-size: 0.82rem;
     color: var(--text-dim);
     text-decoration: none;
     letter-spacing: 2px;
@@ -156,38 +168,38 @@
   }
   .nav-links a::after {
     content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px;
-    background: var(--cyan);
-    box-shadow: 0 0 8px var(--cyan);
+    background: var(--crimson);
+    box-shadow: 0 0 10px var(--crimson);
     transition: width 0.3s ease;
   }
   .nav-links a:hover {
-    color: var(--cyan);
-    text-shadow: 0 0 12px rgba(0, 245, 255, 0.8);
+    color: var(--crimson);
+    text-shadow: 0 0 12px var(--crimson-glow);
   }
   .nav-links a:hover::after { width: 100%; }
 
   .nav-btn-resume {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 7px 16px;
-    font-family: 'Share Tech Mono', monospace;
+    padding: 7px 18px;
+    font-family: var(--font-code);
     font-size: 0.75rem;
-    color: var(--cyan);
-    border: 1px solid var(--cyan);
+    color: var(--crimson);
+    border: 1px solid var(--crimson);
     border-radius: 4px;
     text-decoration: none;
     letter-spacing: 1.5px;
     transition: all 0.3s;
-    background: rgba(0, 245, 255, 0.05);
+    background: rgba(255, 0, 51, 0.08);
   }
   .nav-btn-resume:hover {
-    background: var(--cyan);
+    background: var(--crimson);
     color: #000;
-    box-shadow: 0 0 15px rgba(0, 245, 255, 0.6);
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.7);
   }
 
   /* ── SECTIONS SHARED ── */
   section {
-    position: relative; z-index: 2;
+    position: relative; z-index: 10;
     min-height: 100vh;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
@@ -195,31 +207,32 @@
   }
 
   .section-tag {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--cyan);
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    color: var(--crimson);
     letter-spacing: 6px;
     text-transform: uppercase;
     margin-bottom: 12px;
-    opacity: 0.9;
-    display: flex; align-items: center; gap: 10px;
+    display: flex; align-items: center; gap: 12px;
   }
   .section-tag::before, .section-tag::after {
-    content: ''; display: inline-block; width: 24px; height: 1px;
-    background: var(--cyan);
+    content: ''; display: inline-block; width: 28px; height: 1px;
+    background: var(--crimson);
     opacity: 0.5;
   }
 
   .section-title {
-    font-family: 'Orbitron', monospace;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 800;
-    background: linear-gradient(135deg, #ffffff 20%, var(--cyan) 80%);
+    font-family: var(--font-ninja);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #ffffff 15%, #ff4d6d 60%, var(--crimson) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 60px;
     text-align: center;
     position: relative;
+    text-shadow: 0 0 30px rgba(255, 0, 51, 0.35);
   }
 
   /* ── HERO ── */
@@ -228,45 +241,44 @@
     justify-content: center;
     text-align: center;
     position: relative;
-    padding-top: 140px;
+    padding-top: 130px;
   }
 
   .hero-status {
     display: inline-flex; align-items: center; gap: 10px;
-    background: rgba(0, 245, 255, 0.06);
-    border: 1px solid rgba(0, 245, 255, 0.25);
+    background: rgba(255, 0, 51, 0.08);
+    border: 1px solid rgba(255, 0, 51, 0.35);
     border-radius: 100px;
-    padding: 8px 22px;
-    font-family: 'Share Tech Mono', monospace;
+    padding: 8px 24px;
+    font-family: var(--font-code);
     font-size: 0.78rem;
-    color: var(--cyan);
+    color: #ff3355;
     letter-spacing: 3px;
     margin-bottom: 30px;
     animation: fadeSlideDown 1s ease both;
     backdrop-filter: blur(8px);
-    box-shadow: 0 0 20px rgba(0, 245, 255, 0.1);
+    box-shadow: 0 0 25px rgba(255, 0, 51, 0.2);
   }
   .status-dot {
     width: 8px; height: 8px;
-    background: var(--neon);
+    background: var(--crimson);
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--neon);
-    animation: pulse 2s infinite;
+    box-shadow: 0 0 10px var(--crimson), 0 0 20px var(--crimson);
+    animation: pulseEye 2s infinite;
   }
 
   .hero-name {
-    font-family: 'Orbitron', monospace;
+    font-family: var(--font-ninja);
     font-weight: 900;
-    font-size: clamp(3.2rem, 8.5vw, 7.5rem);
+    font-size: clamp(3.4rem, 8.8vw, 7.8rem);
     line-height: 1.05;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     position: relative;
-    animation: fadeSlideUp 1s 0.2s ease both;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
   }
   .hero-name .line1 {
     display: block;
-    background: linear-gradient(90deg, #ffffff 0%, var(--cyan) 50%, #ffffff 100%);
+    background: linear-gradient(90deg, #ffffff 0%, #ff6680 40%, #ffffff 80%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -274,30 +286,31 @@
   }
   .hero-name .line2 {
     display: block;
-    color: var(--cyan);
-    text-shadow: 0 0 35px rgba(0, 245, 255, 0.5), 0 0 70px rgba(0, 245, 255, 0.25);
-    -webkit-text-fill-color: var(--cyan);
+    color: var(--crimson);
+    text-shadow: 0 0 35px var(--crimson-glow), 0 0 70px rgba(255, 0, 51, 0.3);
+    -webkit-text-fill-color: var(--crimson);
+    font-family: var(--font-ninja);
   }
 
   .hero-subtitle {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: clamp(0.95rem, 2.2vw, 1.25rem);
     color: var(--text-dim);
     letter-spacing: 3px;
     margin-bottom: 20px;
     animation: fadeSlideUp 1s 0.4s ease both;
   }
-  .hero-subtitle span { color: var(--cyan); font-weight: 600; }
+  .hero-subtitle span { color: var(--crimson); font-weight: 600; }
 
   .typed-line {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 1.05rem;
-    color: var(--cyan);
-    opacity: 0.9;
+    color: #ff4d6d;
+    opacity: 0.95;
     min-height: 1.6em;
     margin-bottom: 35px;
     animation: fadeSlideUp 1s 0.6s ease both;
-    text-shadow: 0 0 12px rgba(0, 245, 255, 0.4);
+    text-shadow: 0 0 14px rgba(255, 0, 51, 0.4);
   }
   .typed-cursor { animation: blink 0.8s step-end infinite; }
 
@@ -307,17 +320,17 @@
     animation: fadeSlideUp 1s 0.7s ease both;
   }
   .hero-pill {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.75rem;
-    padding: 6px 14px;
+    padding: 6px 16px;
     border-radius: 50px;
-    background: rgba(10, 132, 255, 0.08);
-    border: 1px solid rgba(0, 245, 255, 0.2);
-    color: var(--text);
-    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255, 0, 51, 0.08);
+    border: 1px solid rgba(255, 0, 51, 0.25);
+    color: var(--text-white);
+    display: inline-flex; align-items: center; gap: 8px;
     backdrop-filter: blur(6px);
   }
-  .hero-pill i { color: var(--cyan); }
+  .hero-pill i { color: var(--crimson); }
 
   .hero-btns {
     display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
@@ -325,7 +338,7 @@
   }
 
   .btn {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.85rem;
     letter-spacing: 2px;
     padding: 15px 34px;
@@ -340,32 +353,32 @@
   }
   .btn::before {
     content:''; position: absolute; inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
     transform: translateX(-100%);
     transition: transform 0.6s;
   }
   .btn:hover::before { transform: translateX(100%); }
 
   .btn-primary {
-    background: linear-gradient(135deg, var(--cyan), var(--cyan2));
-    color: #020509;
+    background: linear-gradient(135deg, var(--crimson), #b80024);
+    color: #fff;
     font-weight: 700;
-    box-shadow: 0 0 24px rgba(0, 245, 255, 0.45);
-    border: none;
+    box-shadow: 0 0 25px rgba(255, 0, 51, 0.5);
+    border: 1px solid rgba(255, 100, 130, 0.3);
   }
   .btn-primary:hover {
-    box-shadow: 0 0 45px rgba(0, 245, 255, 0.85);
+    box-shadow: 0 0 45px rgba(255, 0, 51, 0.9);
     transform: translateY(-3px) scale(1.02);
   }
   .btn-outline {
-    border: 1px solid var(--cyan);
-    color: var(--cyan);
-    background: rgba(0, 245, 255, 0.04);
+    border: 1px solid var(--crimson);
+    color: var(--crimson);
+    background: rgba(255, 0, 51, 0.05);
     backdrop-filter: blur(8px);
   }
   .btn-outline:hover {
-    background: rgba(0, 245, 255, 0.12);
-    box-shadow: 0 0 25px rgba(0, 245, 255, 0.35);
+    background: rgba(255, 0, 51, 0.18);
+    box-shadow: 0 0 30px rgba(255, 0, 51, 0.45);
     transform: translateY(-3px);
   }
 
@@ -374,22 +387,22 @@
     transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center;
     gap: 8px;
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.68rem;
-    color: var(--muted);
+    color: var(--text-muted);
     letter-spacing: 3px;
     animation: fadeSlideUp 1s 1.2s ease both;
   }
   .scroll-line {
-    width: 1px; height: 50px;
-    background: linear-gradient(180deg, var(--cyan), transparent);
+    width: 1.5px; height: 50px;
+    background: linear-gradient(180deg, var(--crimson), transparent);
     animation: scrollPulse 2s ease-in-out infinite;
   }
 
   /* ── 3D TILT CARDS & GLASS ── */
   .tilt-card {
     transform-style: preserve-3d;
-    transition: transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    transition: transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
     position: relative;
     will-change: transform;
   }
@@ -402,9 +415,9 @@
     z-index: 5;
   }
 
-  /* ── ABOUT ── */
+  /* ── ABOUT SECTION ── */
   #about {
-    background: linear-gradient(180deg, transparent, rgba(0, 20, 40, 0.3), transparent);
+    background: linear-gradient(180deg, transparent, rgba(20, 3, 8, 0.4), transparent);
   }
   .about-grid {
     display: grid;
@@ -425,45 +438,43 @@
   .avatar-ring {
     position: absolute; inset: -20px;
     border-radius: 50%;
-    border: 1px solid rgba(0, 245, 255, 0.3);
-    animation: rotateSlow 12s linear infinite;
+    border: 1.5px solid rgba(255, 0, 51, 0.4);
+    animation: rotateSlow 14s linear infinite;
   }
   .avatar-ring::after {
     content:''; position: absolute;
     top: -4px; left: 50%; transform: translateX(-50%);
-    width: 8px; height: 8px;
-    background: var(--cyan);
+    width: 9px; height: 9px;
+    background: var(--crimson);
     border-radius: 50%;
-    box-shadow: 0 0 15px var(--cyan);
+    box-shadow: 0 0 15px var(--crimson);
   }
   .avatar-ring2 {
     position: absolute; inset: -45px;
     border-radius: 50%;
-    border: 1px dashed rgba(0, 245, 255, 0.15);
-    animation: rotateSlow 24s linear infinite reverse;
+    border: 1px dashed rgba(255, 0, 51, 0.2);
+    animation: rotateSlow 26s linear infinite reverse;
   }
   .avatar-hex {
     width: 270px; height: 270px;
     clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
-    background: linear-gradient(135deg, #0a2030, #0d3050);
+    background: linear-gradient(135deg, #180509, #330812);
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Orbitron', monospace;
+    font-family: var(--font-ninja);
     font-size: 5rem;
     font-weight: 900;
-    color: var(--cyan);
-    text-shadow: 0 0 40px var(--cyan);
-    border: 2px solid var(--cyan);
+    color: var(--crimson);
+    text-shadow: 0 0 40px var(--crimson);
+    border: 2px solid var(--crimson);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 50px rgba(0, 245, 255, 0.2);
+    box-shadow: 0 0 50px rgba(255, 0, 51, 0.3);
   }
   .avatar-hex img {
     position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2;
     transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
-  .avatar-hex:hover img {
-    transform: scale(1.08);
-  }
+  .avatar-hex:hover img { transform: scale(1.08); }
 
   .about-stats {
     display: grid; grid-template-columns: repeat(4, 1fr);
@@ -476,23 +487,23 @@
     padding: 16px 12px;
     text-align: center;
     backdrop-filter: blur(10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   }
   .stat-card:hover {
-    border-color: var(--cyan);
-    box-shadow: 0 0 25px rgba(0, 245, 255, 0.2);
+    border-color: var(--crimson);
+    box-shadow: 0 0 25px rgba(255, 0, 51, 0.3);
   }
   .stat-num {
-    font-family: 'Orbitron', monospace;
-    font-size: 1.65rem;
+    font-family: var(--font-ninja);
+    font-size: 1.7rem;
     font-weight: 700;
-    color: var(--cyan);
+    color: var(--crimson);
     display: block;
     margin-bottom: 4px;
-    text-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+    text-shadow: 0 0 12px var(--crimson-glow);
   }
   .stat-lbl {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.68rem;
     color: var(--text-dim);
     letter-spacing: 2px;
@@ -500,20 +511,33 @@
   }
 
   .about-text h2 {
-    font-family: 'Orbitron', monospace;
+    font-family: var(--font-code);
     font-size: 0.95rem;
-    color: var(--cyan);
+    color: var(--crimson);
     letter-spacing: 3px;
     margin-bottom: 10px;
-    opacity: 0.8;
+    opacity: 0.9;
   }
   .about-text h3 {
-    font-family: 'Orbitron', monospace;
-    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
-    font-weight: 700;
+    font-family: var(--font-ninja);
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 900;
     color: #fff;
-    margin-bottom: 22px;
+    margin-bottom: 14px;
     line-height: 1.25;
+  }
+  .itachi-quote {
+    font-family: var(--font-ninja);
+    font-style: italic;
+    color: #ff6680;
+    border-left: 2px solid var(--crimson);
+    padding-left: 16px;
+    margin-bottom: 22px;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    background: rgba(255, 0, 51, 0.04);
+    padding: 10px 16px;
+    border-radius: 0 6px 6px 0;
   }
   .about-text p {
     font-size: 0.98rem;
@@ -525,27 +549,27 @@
     display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;
   }
   .tag {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.74rem;
-    color: var(--cyan);
-    border: 1px solid rgba(0, 245, 255, 0.25);
+    color: #ff4d6d;
+    border: 1px solid rgba(255, 0, 51, 0.3);
     border-radius: 6px;
     padding: 6px 14px;
     letter-spacing: 1px;
-    background: rgba(0, 245, 255, 0.05);
+    background: rgba(255, 0, 51, 0.06);
     backdrop-filter: blur(4px);
     transition: all 0.3s;
   }
   .tag:hover {
-    border-color: var(--cyan);
-    background: rgba(0, 245, 255, 0.12);
-    box-shadow: 0 0 15px rgba(0, 245, 255, 0.25);
+    border-color: var(--crimson);
+    background: rgba(255, 0, 51, 0.18);
+    box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
     transform: translateY(-2px);
   }
 
-  /* ── SKILLS ── */
+  /* ── SKILLS SECTION ── */
   #skills {
-    background: radial-gradient(ellipse at center, rgba(0, 50, 80, 0.2) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(40, 5, 15, 0.25) 0%, transparent 70%);
   }
   .skills-grid {
     display: grid;
@@ -562,43 +586,43 @@
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(12px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
   }
   .skill-category::before {
     content:''; position: absolute;
     top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    background: linear-gradient(90deg, transparent, var(--crimson), transparent);
     opacity: 0;
     transition: opacity 0.3s;
   }
   .skill-category:hover {
     border-color: var(--glass-border-hover);
-    box-shadow: 0 0 35px rgba(0, 245, 255, 0.12), 0 20px 45px rgba(0,0,0,0.6);
+    box-shadow: 0 0 35px rgba(255, 0, 51, 0.2), 0 20px 45px rgba(0,0,0,0.7);
   }
   .skill-category:hover::before { opacity: 1; }
   .skill-cat-title {
-    font-family: 'Orbitron', monospace;
-    font-size: 0.88rem;
-    color: var(--cyan);
-    letter-spacing: 3px;
+    font-family: var(--font-ninja);
+    font-size: 0.98rem;
+    color: var(--crimson);
+    letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 24px;
     display: flex; align-items: center; gap: 12px;
   }
   .skill-cat-title i {
-    font-size: 1.1rem;
-    color: var(--cyan);
-    filter: drop-shadow(0 0 8px var(--cyan));
+    font-size: 1.15rem;
+    color: var(--crimson);
+    filter: drop-shadow(0 0 8px var(--crimson));
   }
   .skill-item { margin-bottom: 18px; }
   .skill-header {
     display: flex; justify-content: space-between;
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.82rem;
-    color: var(--text);
+    color: var(--text-white);
     margin-bottom: 8px;
   }
-  .skill-pct { color: var(--cyan); font-weight: 700; }
+  .skill-pct { color: var(--crimson); font-weight: 700; }
   .skill-bar {
     height: 4px;
     background: rgba(255, 255, 255, 0.06);
@@ -608,7 +632,7 @@
   }
   .skill-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    background: linear-gradient(90deg, #660012, var(--crimson));
     border-radius: 4px;
     width: 0;
     transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -617,14 +641,14 @@
   .skill-fill::after {
     content:''; position: absolute; right: 0; top: -3px;
     width: 10px; height: 10px;
-    background: var(--cyan);
+    background: var(--crimson);
     border-radius: 50%;
-    box-shadow: 0 0 12px var(--cyan);
+    box-shadow: 0 0 12px var(--crimson);
   }
 
-  /* ── PROJECTS ── */
+  /* ── PROJECTS SECTION ── */
   #projects {
-    background: linear-gradient(180deg, transparent, rgba(0, 10, 25, 0.5), transparent);
+    background: linear-gradient(180deg, transparent, rgba(25, 4, 10, 0.5), transparent);
   }
   .projects-grid {
     display: grid;
@@ -642,14 +666,14 @@
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(12px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
     display: flex; flex-direction: column;
     cursor: pointer;
   }
   .project-card:hover {
-    border-color: var(--cyan);
+    border-color: var(--crimson);
     background: var(--bg-card-hover);
-    box-shadow: 0 0 45px rgba(0, 245, 255, 0.25), 0 25px 60px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 45px rgba(255, 0, 51, 0.3), 0 25px 60px rgba(0, 0, 0, 0.85);
   }
 
   .project-card-image-wrap {
@@ -658,12 +682,12 @@
     background: #000;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid rgba(0, 245, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 0, 51, 0.2);
   }
   .project-card-image-wrap img {
     width: 100%; height: 100%;
     object-fit: cover;
-    opacity: 0.75;
+    opacity: 0.78;
     transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s ease;
   }
   .project-card:hover .project-card-image-wrap img {
@@ -672,15 +696,15 @@
   }
   .project-card-image-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 50%, rgba(5, 14, 26, 0.95) 100%);
+    background: linear-gradient(180deg, transparent 45%, rgba(14, 4, 8, 0.98) 100%);
     pointer-events: none;
   }
 
   .project-num {
-    font-family: 'Orbitron', monospace;
-    font-size: 2.4rem;
+    font-family: var(--font-ninja);
+    font-size: 2.2rem;
     font-weight: 900;
-    color: rgba(0, 245, 255, 0.15);
+    color: rgba(255, 0, 51, 0.18);
     position: absolute;
     top: 12px; right: 16px;
     line-height: 1;
@@ -692,7 +716,7 @@
     position: absolute;
     top: 14px; left: 16px;
     z-index: 3;
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.68rem;
     padding: 4px 10px;
     border-radius: 4px;
@@ -702,15 +726,15 @@
     backdrop-filter: blur(6px);
   }
   .project-badge-flagship {
-    background: rgba(0, 245, 255, 0.2);
-    border: 1px solid var(--cyan);
-    color: var(--cyan);
-    box-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
-    animation: pulse 2.5s infinite;
+    background: rgba(255, 0, 51, 0.25);
+    border: 1px solid var(--crimson);
+    color: #ff4d6d;
+    box-shadow: 0 0 15px rgba(255, 0, 51, 0.5);
+    animation: pulseEye 2.5s infinite;
   }
   .project-badge-featured {
-    background: rgba(10, 132, 255, 0.2);
-    border: 1px solid var(--blue);
+    background: rgba(100, 0, 20, 0.4);
+    border: 1px solid rgba(255, 0, 51, 0.5);
     color: #fff;
   }
 
@@ -724,17 +748,17 @@
     margin-bottom: 12px;
   }
   .project-icon {
-    width: 38px; height: 38px;
-    background: rgba(0, 245, 255, 0.08);
-    border: 1px solid rgba(0, 245, 255, 0.3);
+    width: 40px; height: 40px;
+    background: rgba(255, 0, 51, 0.1);
+    border: 1px solid rgba(255, 0, 51, 0.4);
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     flex-shrink: 0;
   }
   .project-name {
-    font-family: 'Orbitron', monospace;
-    font-size: 1.15rem;
+    font-family: var(--font-ninja);
+    font-size: 1.2rem;
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.5px;
@@ -753,29 +777,29 @@
     margin-bottom: 22px;
   }
   .stack-badge {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.7rem;
-    color: var(--cyan2);
-    background: rgba(0, 188, 212, 0.08);
-    border: 1px solid rgba(0, 188, 212, 0.22);
+    color: #ff6680;
+    background: rgba(255, 0, 51, 0.08);
+    border: 1px solid rgba(255, 0, 51, 0.25);
     border-radius: 4px;
     padding: 3px 9px;
     letter-spacing: 0.5px;
     transition: all 0.25s;
   }
   .stack-badge:hover {
-    border-color: var(--cyan);
+    border-color: var(--crimson);
     color: #fff;
-    background: rgba(0, 245, 255, 0.15);
+    background: rgba(255, 0, 51, 0.2);
   }
 
   .project-actions {
     display: flex; gap: 10px; flex-wrap: wrap;
     padding-top: 14px;
-    border-top: 1px solid rgba(0, 245, 255, 0.08);
+    border-top: 1px solid rgba(255, 0, 51, 0.12);
   }
   .btn-card-action {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.72rem;
     letter-spacing: 1px;
     padding: 8px 14px;
@@ -787,27 +811,27 @@
     cursor: pointer;
   }
   .btn-card-live {
-    background: var(--cyan);
-    color: #000;
+    background: var(--crimson);
+    color: #fff;
     font-weight: 700;
-    border: 1px solid var(--cyan);
-    box-shadow: 0 0 15px rgba(0, 245, 255, 0.35);
+    border: 1px solid var(--crimson);
+    box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
   }
   .btn-card-live:hover {
-    background: #fff;
-    box-shadow: 0 0 25px rgba(0, 245, 255, 0.7);
+    background: #ff3355;
+    box-shadow: 0 0 25px rgba(255, 0, 51, 0.8);
     transform: translateY(-2px);
   }
   .btn-card-code {
-    background: rgba(0, 245, 255, 0.05);
-    color: var(--neon);
-    border: 1px solid rgba(57, 255, 20, 0.3);
+    background: rgba(255, 0, 51, 0.06);
+    color: #ff6680;
+    border: 1px solid rgba(255, 0, 51, 0.35);
   }
   .btn-card-code:hover {
-    background: rgba(57, 255, 20, 0.15);
-    border-color: var(--neon);
+    background: rgba(255, 0, 51, 0.2);
+    border-color: var(--crimson);
     color: #fff;
-    box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+    box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
     transform: translateY(-2px);
   }
   .btn-card-details {
@@ -817,14 +841,14 @@
     margin-left: auto;
   }
   .btn-card-details:hover {
-    border-color: var(--cyan);
-    color: var(--cyan);
-    background: rgba(0, 245, 255, 0.08);
+    border-color: var(--crimson);
+    color: var(--crimson);
+    background: rgba(255, 0, 51, 0.1);
   }
 
-  /* ── EDUCATION ── */
+  /* ── EDUCATION / JOURNEY ── */
   #education {
-    background: radial-gradient(ellipse at 80% 50%, rgba(0, 30, 60, 0.3) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 80% 50%, rgba(35, 5, 12, 0.35) 0%, transparent 60%);
   }
   .timeline {
     max-width: 850px;
@@ -834,8 +858,8 @@
   .timeline::before {
     content:''; position: absolute;
     left: 28px; top: 0; bottom: 0; width: 2px;
-    background: linear-gradient(180deg, transparent, var(--cyan), var(--blue), transparent);
-    opacity: 0.4;
+    background: linear-gradient(180deg, transparent, var(--crimson), #660012, transparent);
+    opacity: 0.5;
   }
   .timeline-item {
     padding: 0 0 50px 80px;
@@ -845,17 +869,17 @@
     position: absolute;
     left: 19px; top: 6px;
     width: 20px; height: 20px;
-    border: 2px solid var(--cyan);
+    border: 2px solid var(--crimson);
     border-radius: 50%;
-    background: var(--bg);
-    box-shadow: 0 0 15px rgba(0, 245, 255, 0.6);
+    background: var(--bg-void);
+    box-shadow: 0 0 15px var(--crimson-glow);
   }
   .timeline-dot::after {
     content:''; position: absolute;
     inset: 3px;
-    background: var(--cyan);
+    background: var(--crimson);
     border-radius: 50%;
-    box-shadow: 0 0 8px var(--cyan);
+    box-shadow: 0 0 8px var(--crimson);
   }
   .timeline-card {
     background: var(--bg-card);
@@ -866,29 +890,29 @@
     transition: all 0.3s;
   }
   .timeline-card:hover {
-    border-color: var(--cyan);
-    box-shadow: 0 0 30px rgba(0, 245, 255, 0.15);
+    border-color: var(--crimson);
+    box-shadow: 0 0 30px rgba(255, 0, 51, 0.2);
     transform: translateX(6px);
   }
   .timeline-date {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.75rem;
-    color: var(--cyan);
+    color: var(--crimson);
     letter-spacing: 3px;
     margin-bottom: 6px;
     font-weight: 700;
   }
   .timeline-title {
-    font-family: 'Orbitron', monospace;
-    font-size: 1.15rem;
+    font-family: var(--font-ninja);
+    font-size: 1.25rem;
     font-weight: 700;
     color: #fff;
     margin-bottom: 6px;
   }
   .timeline-sub {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.82rem;
-    color: var(--cyan2);
+    color: #ff6680;
     margin-bottom: 12px;
     letter-spacing: 1px;
   }
@@ -898,11 +922,11 @@
     color: var(--text-dim);
   }
   .timeline-body li { margin-bottom: 6px; list-style: none; padding-left: 18px; position: relative; }
-  .timeline-body li::before { content:'▸'; position: absolute; left: 0; color: var(--cyan); }
+  .timeline-body li::before { content:'▸'; position: absolute; left: 0; color: var(--crimson); }
 
-  /* ── CONTACT ── */
+  /* ── CONTACT SECTION ── */
   #contact {
-    background: radial-gradient(ellipse at 50% 100%, rgba(0, 245, 255, 0.05) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 50% 100%, rgba(255, 0, 51, 0.08) 0%, transparent 60%);
     min-height: 80vh;
   }
   .contact-inner {
@@ -925,34 +949,32 @@
     padding: 38px;
     border-radius: 14px;
     backdrop-filter: blur(14px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
   }
   .form-group { margin-bottom: 22px; }
   .form-group label {
     display: flex; align-items: center; gap: 8px;
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.78rem;
-    color: var(--cyan);
+    color: var(--crimson);
     margin-bottom: 8px;
     letter-spacing: 2px;
   }
-  .form-group label i { font-size: 0.95rem; }
   .input-wrapper {
     position: relative;
     display: flex; align-items: center;
   }
   .input-wrapper .input-icon {
     position: absolute; left: 16px;
-    color: var(--cyan);
+    color: var(--crimson);
     font-size: 1rem;
     pointer-events: none;
-    transition: color 0.3s, transform 0.3s;
     z-index: 2;
   }
   .input-wrapper .textarea-icon { top: 16px; }
   .form-group input, .form-group textarea {
     width: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     border: 1px solid var(--glass-border);
     padding: 13px 16px 13px 46px;
     color: #fff;
@@ -963,13 +985,13 @@
     transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
   }
   .form-group input:focus, .form-group textarea:focus {
-    border-color: var(--cyan);
-    background: rgba(0, 245, 255, 0.04);
-    box-shadow: 0 0 20px rgba(0, 245, 255, 0.25);
+    border-color: var(--crimson);
+    background: rgba(255, 0, 51, 0.05);
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.3);
   }
   .input-wrapper:focus-within .input-icon {
-    color: var(--cyan);
-    filter: drop-shadow(0 0 8px var(--cyan));
+    color: #ff3355;
+    filter: drop-shadow(0 0 8px var(--crimson));
   }
 
   .contact-cards {
@@ -990,15 +1012,15 @@
     backdrop-filter: blur(10px);
   }
   .contact-card:hover {
-    border-color: rgba(0, 245, 255, 0.5);
-    background: rgba(0, 245, 255, 0.08);
+    border-color: var(--crimson);
+    background: rgba(255, 0, 51, 0.1);
     transform: translateY(-6px);
-    box-shadow: 0 0 30px rgba(0, 245, 255, 0.2);
+    box-shadow: 0 0 30px rgba(255, 0, 51, 0.25);
   }
   .contact-card.whatsapp-card:hover {
-    border-color: rgba(37, 211, 102, 0.6);
-    background: rgba(37, 211, 102, 0.08);
-    box-shadow: 0 0 30px rgba(37, 211, 102, 0.25);
+    border-color: rgba(37, 211, 102, 0.7);
+    background: rgba(37, 211, 102, 0.1);
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.3);
   }
   .contact-card-icon {
     font-size: 1.8rem;
@@ -1006,52 +1028,50 @@
     display: flex; align-items: center; justify-content: center;
     width: 56px; height: 56px;
     border-radius: 50%;
-    background: rgba(0, 245, 255, 0.07);
-    border: 1px solid rgba(0, 245, 255, 0.25);
+    background: rgba(255, 0, 51, 0.1);
+    border: 1px solid rgba(255, 0, 51, 0.35);
     transition: all 0.3s ease;
   }
   .contact-card:hover .contact-card-icon {
     transform: scale(1.12);
-    background: rgba(0, 245, 255, 0.18);
-    box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
+    background: rgba(255, 0, 51, 0.25);
+    box-shadow: 0 0 20px var(--crimson);
   }
   .contact-card.whatsapp-card .contact-card-icon {
-    background: rgba(37, 211, 102, 0.08);
-    border-color: rgba(37, 211, 102, 0.3);
+    background: rgba(37, 211, 102, 0.1);
+    border-color: rgba(37, 211, 102, 0.4);
   }
   .contact-card.whatsapp-card:hover .contact-card-icon {
-    background: rgba(37, 211, 102, 0.22);
-    box-shadow: 0 0 20px rgba(37, 211, 102, 0.45);
+    background: rgba(37, 211, 102, 0.25);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
   }
   .contact-card-label {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.78rem;
-    color: var(--muted);
+    color: var(--text-muted);
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 6px;
   }
   .contact-card-value {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.88rem;
-    color: var(--cyan);
+    color: #ff4d6d;
     word-break: break-all;
   }
-  .contact-card.whatsapp-card .contact-card-value {
-    color: #25D366;
-  }
+  .contact-card.whatsapp-card .contact-card-value { color: #25D366; }
 
   .social-links {
     display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
   }
   .social-btn {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-code);
     font-size: 0.8rem;
     letter-spacing: 2px;
     padding: 13px 26px;
     border: 1px solid var(--glass-border);
     border-radius: 6px;
-    color: var(--text);
+    color: var(--text-white);
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.3s;
@@ -1060,10 +1080,10 @@
     background: var(--bg-card);
   }
   .social-btn:hover {
-    border-color: var(--cyan);
-    color: var(--cyan);
-    background: rgba(0, 245, 255, 0.08);
-    box-shadow: 0 0 20px rgba(0, 245, 255, 0.25);
+    border-color: var(--crimson);
+    color: var(--crimson);
+    background: rgba(255, 0, 51, 0.12);
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.35);
     transform: translateY(-2px);
   }
 
@@ -1071,47 +1091,213 @@
   footer {
     text-align: center;
     padding: 35px 60px;
-    position: relative; z-index: 2;
-    border-top: 1px solid rgba(0, 245, 255, 0.08);
-    font-family: 'Share Tech Mono', monospace;
+    position: relative; z-index: 10;
+    border-top: 1px solid rgba(255, 0, 51, 0.12);
+    font-family: var(--font-code);
     font-size: 0.78rem;
-    color: var(--muted);
+    color: var(--text-muted);
     letter-spacing: 2px;
-    background: rgba(2, 5, 9, 0.95);
+    background: rgba(6, 2, 4, 0.95);
   }
 
-  /* ── SCANLINES ── */
-  .scanlines {
-    position: fixed; inset: 0; pointer-events: none; z-index: 50;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent, transparent 2px,
-      rgba(0, 0, 0, 0.025) 2px, rgba(0, 0, 0, 0.025) 4px
-    );
+  /* ── FLOATING ITACHI DOCK ── */
+  .quick-dock {
+    position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+    display: flex; gap: 12px; align-items: center;
+  }
+  .dock-btn {
+    background: rgba(14, 4, 8, 0.9);
+    border: 1px solid var(--crimson);
+    color: var(--crimson);
+    padding: 11px 20px;
+    border-radius: 50px;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.35);
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+  .dock-btn:hover {
+    background: var(--crimson);
+    color: #fff;
+    box-shadow: 0 0 35px var(--crimson-glow);
+    transform: translateY(-3px);
+  }
+  .dock-btn-genjutsu {
+    background: linear-gradient(135deg, rgba(255, 0, 51, 0.2), rgba(10, 0, 20, 0.8));
+    border-color: #ff3355;
+    color: #fff;
+    animation: pulseEye 3s infinite;
+  }
+  .dock-btn-genjutsu:hover {
+    background: var(--crimson);
   }
 
-  /* ── CORNER ACCENTS ── */
-  .corner {
-    position: fixed; pointer-events: none; z-index: 50;
-    width: 50px; height: 50px;
+  /* ── TERMINAL UI ── */
+  #terminal-overlay {
+    position: fixed; inset: 0; z-index: 10002;
+    background: rgba(4, 1, 3, 0.92);
+    backdrop-filter: blur(14px);
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.3s, visibility 0.3s;
   }
-  .corner-tl { top: 10px; left: 10px; border-top: 2px solid rgba(0, 245, 255, 0.35); border-left: 2px solid rgba(0, 245, 255, 0.35); }
-  .corner-tr { top: 10px; right: 10px; border-top: 2px solid rgba(0, 245, 255, 0.35); border-right: 2px solid rgba(0, 245, 255, 0.35); }
-  .corner-bl { bottom: 10px; left: 10px; border-bottom: 2px solid rgba(0, 245, 255, 0.35); border-left: 2px solid rgba(0, 245, 255, 0.35); }
-  .corner-br { bottom: 10px; right: 10px; border-bottom: 2px solid rgba(0, 245, 255, 0.35); border-right: 2px solid rgba(0, 245, 255, 0.35); }
+  #terminal-overlay.terminal-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+  .terminal-window {
+    width: 90%; max-width: 820px; height: 520px;
+    background: #080204; border: 1px solid var(--crimson);
+    box-shadow: 0 0 50px rgba(255, 0, 51, 0.35), 0 25px 80px rgba(0, 0, 0, 0.95);
+    border-radius: 10px; display: flex; flex-direction: column; overflow: hidden;
+    font-family: var(--font-code);
+  }
+  .terminal-header {
+    background: #140409; padding: 12px 18px; display: flex; align-items: center;
+    border-bottom: 1px solid rgba(255, 0, 51, 0.25);
+  }
+  .terminal-dots { display: flex; gap: 8px; }
+  .terminal-dots span { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+  .dot-red { background: #ff0033; box-shadow: 0 0 6px #ff0033; }
+  .dot-yellow { background: #ffaa00; }
+  .dot-green { background: #00ffaa; }
+  .terminal-title { flex: 1; text-align: center; font-size: 0.78rem; color: #ff4d6d; letter-spacing: 2px; }
+  .terminal-body { flex: 1; padding: 22px; overflow-y: auto; color: #fff; font-size: 0.88rem; line-height: 1.7; }
+  .terminal-line { margin-bottom: 8px; }
+  .user-cmd { color: #ff3355; }
+  .system-res { color: #ff6680; }
+  .accent-res { color: #ffaa00; }
+  .dim-res { color: var(--text-dim); }
+  .terminal-input-line { padding: 12px 22px; display: flex; gap: 10px; background: #0c0205; border-top: 1px solid rgba(255, 0, 51, 0.15); }
+  .terminal-prompt { color: var(--crimson); font-weight: 700; }
+  #terminal-input { flex: 1; background: none; border: none; color: #fff; font-family: inherit; font-size: inherit; outline: none; }
 
-  /* ── REVEAL ANIMATIONS ── */
+  /* ── NOTIFICATIONS ── */
+  #notification-container {
+    position: fixed; top: 25px; right: 25px; z-index: 10005;
+    display: flex; flex-direction: column; gap: 12px; pointer-events: none;
+  }
+  .notification {
+    pointer-events: all; width: 360px; background: rgba(16, 4, 8, 0.96);
+    backdrop-filter: blur(12px); border: 1px solid var(--border-color, var(--crimson));
+    border-radius: 8px; padding: 16px 18px; position: relative; overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 0, 51, 0.25);
+    display: flex; gap: 14px; align-items: flex-start;
+    transform: translateX(120%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  .notification.show { transform: translateX(0); }
+  .notification-title { font-family: var(--font-ninja); font-size: 0.82rem; font-weight: 700; color: var(--border-color); margin-bottom: 4px; }
+  .notification-message { font-size: 0.85rem; color: var(--text-white); line-height: 1.5; }
+  .notification-progress { position: absolute; bottom: 0; left: 0; height: 2.5px; background: var(--border-color); width: 100%; transform-origin: left; }
+  .notification-system { --border-color: var(--crimson); }
+  .notification-success { --border-color: #ff3355; }
+  .notification-error { --border-color: #ff9900; }
+
+  /* ── PROJECT MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 10001;
+    background: rgba(4, 1, 3, 0.94);
+    backdrop-filter: blur(16px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: all 0.4s;
+    padding: 20px;
+  }
+  .modal-overlay.active { opacity: 1; visibility: visible; }
+  .modal-content {
+    background: #0a0307; border: 1px solid var(--crimson);
+    box-shadow: 0 0 60px rgba(255, 0, 51, 0.4), 0 25px 80px rgba(0,0,0,0.95);
+    width: 100%; max-width: 860px; max-height: 90vh;
+    overflow-y: auto; position: relative; border-radius: 12px;
+    transform: scale(0.92); transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  .modal-overlay.active .modal-content { transform: scale(1); }
+  .modal-close {
+    position: absolute; top: 16px; right: 20px; background: rgba(0,0,0,0.7);
+    border: 1px solid var(--crimson); border-radius: 50%; width: 40px; height: 40px;
+    color: var(--crimson); font-size: 1.6rem; cursor: pointer; z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.25s;
+  }
+  .modal-close:hover {
+    background: var(--crimson); color: #fff;
+    box-shadow: 0 0 20px var(--crimson);
+    transform: rotate(90deg);
+  }
+  .modal-image-container {
+    height: 380px; background: #000; display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+    border-bottom: 1px solid rgba(255, 0, 51, 0.3);
+  }
+  .modal-image-container img { width: 100%; height: 100%; object-fit: cover; }
+  .modal-details { padding: 40px; }
+  .modal-header { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
+  .modal-icon { font-size: 2.8rem; }
+  .modal-title { font-family: var(--font-ninja); font-size: 2rem; color: #fff; }
+  .modal-tagline { font-family: var(--font-code); font-size: 0.9rem; color: #ff4d6d; margin-top: 4px; }
+  .modal-desc { font-size: 1.05rem; line-height: 1.85; color: var(--text-dim); margin-bottom: 30px; }
+  .modal-tech h4 { font-family: var(--font-code); color: var(--crimson); margin-bottom: 16px; letter-spacing: 2px; }
+  .stack-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 35px; }
+
+  /* ── LOADER ── */
+  #loader {
+    position: fixed; inset: 0; z-index: 99999;
+    background: var(--bg-void);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 20px;
+    transition: opacity 0.6s, visibility 0.6s;
+  }
+  #loader.hidden { opacity: 0; visibility: hidden; }
+  .loader-sharingan {
+    width: 70px; height: 70px;
+    border: 3px solid var(--crimson);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 30px var(--crimson);
+    animation: rotateSlow 2s linear infinite;
+    display: flex; align-items: center; justify-content: center;
+    background: #110004;
+  }
+  .loader-sharingan::after {
+    content: '';
+    width: 20px; height: 20px;
+    background: #000;
+    border: 2px solid var(--crimson);
+    border-radius: 50%;
+  }
+  .loader-text {
+    font-family: var(--font-ninja);
+    font-size: 0.9rem;
+    color: var(--crimson);
+    letter-spacing: 6px;
+    animation: blink 1s step-end infinite;
+  }
+  .loader-bar {
+    width: 220px; height: 3px;
+    background: rgba(255, 0, 51, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .loader-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #660012, var(--crimson));
+    box-shadow: 0 0 15px var(--crimson);
+    width: 0;
+    transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ── ANIMATIONS ── */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── KEYFRAMES ── */
+  @keyframes pulseEye {
+    0%, 100% { box-shadow: 0 0 8px var(--crimson); }
+    50% { box-shadow: 0 0 25px var(--crimson), 0 0 50px rgba(255, 0, 51, 0.6); }
+  }
   @keyframes fadeSlideDown {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -1124,191 +1310,22 @@
     0% { background-position: 200% center; }
     100% { background-position: -200% center; }
   }
-  @keyframes blink {
-    0%, 100% { opacity: 1; } 50% { opacity: 0; }
-  }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 8px var(--neon); }
-    50% { box-shadow: 0 0 22px var(--neon), 0 0 45px rgba(57, 255, 20, 0.5); }
-  }
-  @keyframes rotateSlow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
   @keyframes scrollPulse {
     0%, 100% { opacity: 0.3; transform: scaleY(1); }
     50% { opacity: 1; transform: scaleY(1.25); }
   }
 
-  /* ── LOADER ── */
-  #loader {
-    position: fixed; inset: 0; z-index: 99999;
-    background: var(--bg);
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 20px;
-    transition: opacity 0.6s, visibility 0.6s;
+  /* Genjutsu Distortion Animation */
+  @keyframes tsukuyomiShock {
+    0% { filter: hue-rotate(0deg) contrast(100%); }
+    20% { filter: invert(90%) hue-rotate(180deg) contrast(200%); }
+    40% { filter: invert(0%) hue-rotate(320deg) contrast(150%); }
+    100% { filter: hue-rotate(0deg) contrast(100%); }
   }
-  #loader.hidden { opacity: 0; visibility: hidden; }
-  .loader-logo {
-    font-family: 'Orbitron', monospace;
-    font-size: 2.4rem;
-    font-weight: 900;
-    color: var(--cyan);
-    text-shadow: 0 0 35px var(--cyan);
-    letter-spacing: 4px;
-  }
-  .loader-text {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.82rem;
-    color: var(--cyan);
-    letter-spacing: 8px;
-    animation: blink 1s step-end infinite;
-  }
-  .loader-bar {
-    width: 220px; height: 3px;
-    background: rgba(0, 245, 255, 0.1);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .loader-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--blue), var(--cyan));
-    box-shadow: 0 0 15px var(--cyan);
-    width: 0;
-    transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* ── TERMINAL UI ── */
-  #terminal-overlay {
-    position: fixed; inset: 0; z-index: 10002;
-    background: rgba(2, 5, 9, 0.88);
-    backdrop-filter: blur(12px);
-    display: flex; align-items: center; justify-content: center;
-    transition: opacity 0.3s, visibility 0.3s;
-  }
-  #terminal-overlay.terminal-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-  .terminal-window {
-    width: 90%; max-width: 820px; height: 520px;
-    background: #02060c; border: 1px solid var(--cyan);
-    box-shadow: 0 0 50px rgba(0, 245, 255, 0.3), 0 25px 80px rgba(0, 0, 0, 0.9);
-    border-radius: 10px; display: flex; flex-direction: column; overflow: hidden;
-    font-family: 'JetBrains Mono', 'Share Tech Mono', monospace;
-  }
-  .terminal-header {
-    background: #08111e; padding: 12px 18px; display: flex; align-items: center;
-    border-bottom: 1px solid rgba(0, 245, 255, 0.2);
-  }
-  .terminal-dots { display: flex; gap: 8px; }
-  .terminal-dots span {
-    width: 11px; height: 11px; border-radius: 50%;
-    display: inline-block;
-  }
-  .dot-red { background: #ff5f56; }
-  .dot-yellow { background: #ffbd2e; }
-  .dot-green { background: #27c93f; }
-  .terminal-title { flex: 1; text-align: center; font-size: 0.75rem; color: var(--cyan); letter-spacing: 2px; }
-  .terminal-body { flex: 1; padding: 22px; overflow-y: auto; color: #fff; font-size: 0.88rem; line-height: 1.7; }
-  .terminal-line { margin-bottom: 8px; }
-  .user-cmd { color: var(--neon); }
-  .system-res { color: var(--cyan); }
-  .accent-res { color: #ffd700; }
-  .dim-res { color: var(--text-dim); }
-  .terminal-input-line { padding: 12px 22px; display: flex; gap: 10px; background: #030a14; border-top: 1px solid rgba(0, 245, 255, 0.1); }
-  .terminal-prompt { color: var(--neon); font-weight: 700; }
-  #terminal-input { flex: 1; background: none; border: none; color: #fff; font-family: inherit; font-size: inherit; outline: none; }
-
-  /* ── NOTIFICATIONS ── */
-  #notification-container {
-    position: fixed; top: 25px; right: 25px; z-index: 10005;
-    display: flex; flex-direction: column; gap: 12px; pointer-events: none;
-  }
-  .notification {
-    pointer-events: all; width: 360px; background: rgba(3, 10, 20, 0.95);
-    backdrop-filter: blur(12px); border: 1px solid var(--border-color, var(--cyan));
-    border-radius: 8px; padding: 16px 18px; position: relative; overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 245, 255, 0.2);
-    display: flex; gap: 14px; align-items: flex-start;
-    transform: translateX(120%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  .notification.show { transform: translateX(0); }
-  .notification-title { font-family: 'Orbitron', monospace; font-size: 0.78rem; font-weight: 700; color: var(--border-color); margin-bottom: 4px; }
-  .notification-message { font-size: 0.85rem; color: #c8e6f5; line-height: 1.5; }
-  .notification-progress { position: absolute; bottom: 0; left: 0; height: 2.5px; background: var(--border-color); width: 100%; transform-origin: left; }
-  .notification-system { --border-color: var(--cyan); }
-  .notification-success { --border-color: var(--neon); }
-  .notification-error { --border-color: #ff3e3e; }
-
-  /* ── PROJECT MODAL ── */
-  .modal-overlay {
-    position: fixed; inset: 0; z-index: 10001;
-    background: rgba(2, 5, 9, 0.92);
-    backdrop-filter: blur(16px);
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; visibility: hidden; transition: all 0.4s;
-    padding: 20px;
-  }
-  .modal-overlay.active { opacity: 1; visibility: visible; }
-  .modal-content {
-    background: #040d18; border: 1px solid var(--cyan);
-    box-shadow: 0 0 60px rgba(0, 245, 255, 0.3), 0 25px 80px rgba(0,0,0,0.9);
-    width: 100%; max-width: 860px; max-height: 90vh;
-    overflow-y: auto; position: relative; border-radius: 12px;
-    transform: scale(0.92); transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  }
-  .modal-overlay.active .modal-content { transform: scale(1); }
-  .modal-close {
-    position: absolute; top: 16px; right: 20px; background: rgba(0,0,0,0.6);
-    border: 1px solid var(--cyan); border-radius: 50%; width: 40px; height: 40px;
-    color: var(--cyan); font-size: 1.6rem; cursor: pointer; z-index: 100;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.25s;
-  }
-  .modal-close:hover {
-    background: var(--cyan); color: #000;
-    box-shadow: 0 0 20px var(--cyan);
-    transform: rotate(90deg);
-  }
-  .modal-image-container {
-    height: 380px; background: #000; display: flex; align-items: center; justify-content: center;
-    overflow: hidden; position: relative;
-    border-bottom: 1px solid rgba(0, 245, 255, 0.2);
-  }
-  .modal-image-container img { width: 100%; height: 100%; object-fit: cover; }
-  .modal-details { padding: 40px; }
-  .modal-header { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
-  .modal-icon { font-size: 2.8rem; }
-  .modal-title { font-family: 'Orbitron', monospace; font-size: 2rem; color: #fff; }
-  .modal-tagline { font-family: 'Share Tech Mono', monospace; font-size: 0.9rem; color: var(--cyan); margin-top: 4px; }
-  .modal-desc { font-size: 1.05rem; line-height: 1.85; color: var(--text-dim); margin-bottom: 30px; }
-  .modal-tech h4 { font-family: 'Share Tech Mono', monospace; color: var(--cyan); margin-bottom: 16px; letter-spacing: 2px; }
-  .stack-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 35px; }
-
-  /* ── FLOATING QUICK LAUNCH DOCK ── */
-  .quick-dock {
-    position: fixed; bottom: 30px; right: 30px; z-index: 1000;
-    display: flex; gap: 12px; align-items: center;
-  }
-  .dock-btn {
-    background: rgba(3, 11, 22, 0.85);
-    border: 1px solid var(--cyan);
-    color: var(--cyan);
-    padding: 11px 20px;
-    border-radius: 50px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.8rem;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgba(0, 245, 255, 0.25);
-    display: inline-flex; align-items: center; gap: 8px;
-    transition: all 0.3s;
-    text-decoration: none;
-  }
-  .dock-btn:hover {
-    background: var(--cyan);
-    color: #000;
-    box-shadow: 0 0 30px rgba(0, 245, 255, 0.6);
-    transform: translateY(-3px);
+  .trigger-genjutsu {
+    animation: tsukuyomiShock 0.8s ease;
   }
 
   /* ── RESPONSIVE ── */
@@ -1322,7 +1339,7 @@
     .projects-grid { grid-template-columns: 1fr; gap: 24px; }
     .contact-cards { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr; }
-    .hero-name { font-size: clamp(2.6rem, 12vw, 5rem); }
+    .hero-name { font-size: clamp(2.8rem, 12vw, 5rem); }
     .timeline-item { padding-left: 50px; }
     .timeline::before { left: 14px; }
     .timeline-dot { left: 5px; }
@@ -1339,7 +1356,6 @@
     .modal-image-container { height: 240px; }
     .modal-details { padding: 24px; }
   }
-
   @media (hover: none) and (pointer: coarse) {
     #cursor, #cursor-ring { display: none !important; }
     body { cursor: auto !important; }
@@ -1350,42 +1366,34 @@
 
 <!-- LOADER -->
 <div id="loader">
-  <div class="loader-logo">AK</div>
-  <div class="loader-text">INITIALIZING SYSTEM CORE</div>
+  <div class="loader-sharingan"></div>
+  <div class="loader-text">AWAKENING SHARINGAN</div>
   <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
 </div>
 
-<!-- CYBER BACKGROUND GRID & SCANLINES -->
-<div class="cyber-grid"></div>
-<div class="scanlines"></div>
+<!-- 3D CANVAS & GENJUTSU BACKDROPS -->
+<canvas id="bg-canvas"></canvas>
+<div class="genjutsu-overlay"></div>
+<div class="tsukuyomi-vignette"></div>
 
-<!-- CORNER ACCENTS -->
-<div class="corner corner-tl"></div>
-<div class="corner corner-tr"></div>
-<div class="corner corner-bl"></div>
-<div class="corner corner-br"></div>
-
-<!-- CURSOR -->
+<!-- SHARINGAN CURSOR -->
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 
-<!-- THREE.JS 3D CANVAS -->
-<canvas id="bg-canvas"></canvas>
-
-<!-- TOP NAVIGATION -->
+<!-- NAVIGATION -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo">
-    AK <span class="nav-logo-badge">V2.5</span>
+    ADITYA <span class="nav-logo-kanji">うちは</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">Shinobi</a></li>
+    <li><a href="#skills">Jutsu (Skills)</a></li>
+    <li><a href="#projects">Missions (Projects)</a></li>
+    <li><a href="#education">Journey</a></li>
+    <li><a href="#contact">Comm Link</a></li>
     <li>
       <a href="https://drive.google.com/file/d/1DeB1GMXtY5ID3gzPKjGxzae7SMO62YmT/view?usp=drive_link" target="_blank" class="nav-btn-resume">
-        <i class="fa-solid fa-file-arrow-down"></i> Resume
+        <i class="fa-solid fa-scroll"></i> Ninja Scroll (Resume)
       </a>
     </li>
   </ul>
@@ -1395,37 +1403,37 @@
 <section id="hero">
   <div class="hero-status">
     <div class="status-dot"></div>
-    AVAILABLE FOR OPPORTUNITIES
+    MANGEKYOU SHARINGAN ACTIVE // OPEN FOR OPPORTUNITIES
   </div>
   <h1 class="hero-name">
     <span class="line1">ADITYA</span>
     <span class="line2">KUMAR</span>
   </h1>
   <p class="hero-subtitle">
-    <span>CSE Student</span> · <span>Full-Stack Engineer</span> · <span>System Architect</span>
+    <span>Full-Stack Architect</span> · <span>Systems Engineer</span> · <span>Weaver of Code</span>
   </p>
   <div class="typed-line" id="typedText">
     <span id="typed"></span><span class="typed-cursor">_</span>
   </div>
 
   <div class="hero-pills">
-    <div class="hero-pill"><i class="fa-solid fa-bolt"></i> Scalable Web Systems</div>
-    <div class="hero-pill"><i class="fa-solid fa-robot"></i> AI Integration</div>
-    <div class="hero-pill"><i class="fa-solid fa-desktop"></i> Desktop Software (Electron)</div>
-    <div class="hero-pill"><i class="fa-solid fa-database"></i> Double-Entry & FinTech</div>
+    <div class="hero-pill"><i class="fa-solid fa-crow"></i> Karasu Bunshin Architecture</div>
+    <div class="hero-pill"><i class="fa-solid fa-eye"></i> Tsukuyomi 3D Experiences</div>
+    <div class="hero-pill"><i class="fa-solid fa-fire"></i> FinTech & GST Systems (Vindywashini)</div>
+    <div class="hero-pill"><i class="fa-solid fa-microchip"></i> Electron Desktop Software</div>
   </div>
 
   <div class="hero-btns">
     <a href="#projects" class="btn btn-primary">
-      <i class="fa-solid fa-rocket"></i> Explore Projects
+      <i class="fa-solid fa-fire-flame-curved"></i> View Missions (Projects)
     </a>
     <a href="https://drive.google.com/file/d/1DeB1GMXtY5ID3gzPKjGxzae7SMO62YmT/view?usp=drive_link" target="_blank" class="btn btn-outline">
-      <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+      <i class="fa-solid fa-scroll"></i> Download Resume
     </a>
   </div>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
-    SCROLL TO EXPLORE
+    SCROLL TO ENTER GENJUTSU
   </div>
 </section>
 
@@ -1438,8 +1446,7 @@
         <div class="avatar-ring"></div>
         <div class="avatar-hex">
           <span style="z-index: 1;">AK</span>
-          <img src="assets/images/profile.jpg" alt="Aditya Kumar" 
-               onerror="this.style.opacity='0'">
+          <img src="assets/images/profile.jpg" alt="Aditya Kumar" onerror="this.style.opacity='0'">
         </div>
       </div>
       <div class="about-stats">
@@ -1466,17 +1473,20 @@
       </div>
     </div>
     <div class="about-text">
-      <h2>// ABOUT ME</h2>
-      <h3>Software Engineer &<br/>Full-Stack Architect</h3>
-      <p>I'm Aditya Kumar — a dedicated Computer Science & Engineering student and software engineer who crafts robust, real-world applications designed to solve actual operational challenges.</p>
-      <p>Most recently architected <strong style="color:var(--cyan)">Vindywashini Books</strong> — a modern desktop and web accounting, GST billing, and inventory suite for Indian MSMEs, alongside <strong style="color:var(--cyan)">SkillNest</strong> — an AI-driven student networking ecosystem. My passion centers on distributed backend systems, desktop engineering, and seamless 3D user experiences.</p>
+      <h2>// SHINOBI IDENTITY</h2>
+      <h3>Software Architect &<br/>Full-Stack Engineer</h3>
+      <div class="itachi-quote">
+        "Those who forgive themselves, and are able to accept their true nature... They are the strong ones." — Itachi Uchiha
+      </div>
+      <p>I am Aditya Kumar — a dedicated Computer Science & Engineering student and software architect who builds resilient, high-stakes digital infrastructure capable of withstanding real-world chaos.</p>
+      <p>Recently engineered <strong style="color:var(--crimson)">Vindywashini Books</strong> — a desktop & web accounting, billing, and GST suite for Indian MSMEs, alongside <strong style="color:var(--crimson)">SkillNest</strong> — an AI-powered student peer ecosystem. I wield code like genjutsu: crafting seamless, powerful systems that turn complex operational hurdles into effortless realities.</p>
       <div class="about-tags">
         <span class="tag"><i class="fa-solid fa-code"></i> Full-Stack Dev</span>
-        <span class="tag"><i class="fa-solid fa-cubes"></i> System Design</span>
-        <span class="tag"><i class="fa-solid fa-brain"></i> AI Integration</span>
-        <span class="tag"><i class="fa-solid fa-microchip"></i> Desktop Apps</span>
-        <span class="tag"><i class="fa-solid fa-shield-halved"></i> FinTech & GST</span>
-        <span class="tag"><i class="fa-solid fa-network-wired"></i> Real-time WebSockets</span>
+        <span class="tag"><i class="fa-solid fa-cubes"></i> Distributed Architecture</span>
+        <span class="tag"><i class="fa-solid fa-brain"></i> AI & Gemini Intelligence</span>
+        <span class="tag"><i class="fa-solid fa-shield-halved"></i> FinTech & Accounting</span>
+        <span class="tag"><i class="fa-solid fa-desktop"></i> Desktop Systems (Electron)</span>
+        <span class="tag"><i class="fa-solid fa-network-wired"></i> WebSockets & Realtime</span>
       </div>
     </div>
   </div>
@@ -1484,12 +1494,12 @@
 
 <!-- ═══════════ SKILLS ═══════════ -->
 <section id="skills">
-  <div class="section-tag">// CAPABILITIES</div>
-  <h2 class="section-title">Skills & Tech Stack</h2>
+  <div class="section-tag">// CHAKRA & JUTSU</div>
+  <h2 class="section-title">Skills & Technologies</h2>
   <div class="skills-grid">
 
     <div class="skill-category tilt-card reveal">
-      <div class="skill-cat-title"><i class="fa-solid fa-code"></i> Languages</div>
+      <div class="skill-cat-title"><i class="fa-solid fa-fire"></i> Fire Style (Katon) // Languages</div>
       <div class="skill-item">
         <div class="skill-header"><span>Python</span><span class="skill-pct">90%</span></div>
         <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
@@ -1510,7 +1520,7 @@
     </div>
 
     <div class="skill-category tilt-card reveal">
-      <div class="skill-cat-title"><i class="fa-brands fa-react"></i> Frontend & Desktop</div>
+      <div class="skill-cat-title"><i class="fa-solid fa-bolt"></i> Lightning Style (Raiton) // Frontend & 3D</div>
       <div class="skill-item">
         <div class="skill-header"><span>React.js / Vite</span><span class="skill-pct">90%</span></div>
         <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
@@ -1520,18 +1530,18 @@
         <div class="skill-bar"><div class="skill-fill" data-width="84"></div></div>
       </div>
       <div class="skill-item">
-        <div class="skill-header"><span>Tailwind CSS / CSS3</span><span class="skill-pct">92%</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+        <div class="skill-header"><span>Three.js / 3D Visuals</span><span class="skill-pct">82%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
       </div>
       <div class="skill-item">
-        <div class="skill-header"><span>Three.js / 3D Visuals</span><span class="skill-pct">78%</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+        <div class="skill-header"><span>Tailwind CSS</span><span class="skill-pct">92%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
       </div>
       <div class="card-glare"></div>
     </div>
 
     <div class="skill-category tilt-card reveal">
-      <div class="skill-cat-title"><i class="fa-solid fa-server"></i> Backend & APIs</div>
+      <div class="skill-cat-title"><i class="fa-solid fa-eye"></i> Shadow Style (Yin) // Backend & APIs</div>
       <div class="skill-item">
         <div class="skill-header"><span>Django / Django REST</span><span class="skill-pct">86%</span></div>
         <div class="skill-bar"><div class="skill-fill" data-width="86"></div></div>
@@ -1552,9 +1562,9 @@
     </div>
 
     <div class="skill-category tilt-card reveal">
-      <div class="skill-cat-title"><i class="fa-solid fa-cloud"></i> Cloud & Architecture</div>
+      <div class="skill-cat-title"><i class="fa-solid fa-wind"></i> Wind Style (Futon) // Cloud & Systems</div>
       <div class="skill-item">
-        <div class="skill-header"><span>Vercel / Netlify / Cloudflare</span><span class="skill-pct">88%</span></div>
+        <div class="skill-header"><span>Vercel / Cloudflare</span><span class="skill-pct">88%</span></div>
         <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
       </div>
       <div class="skill-item">
@@ -1566,7 +1576,7 @@
         <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
       </div>
       <div class="skill-item">
-        <div class="skill-header"><span>Double-Entry Financial Systems</span><span class="skill-pct">86%</span></div>
+        <div class="skill-header"><span>Double-Entry Financial Core</span><span class="skill-pct">86%</span></div>
         <div class="skill-bar"><div class="skill-fill" data-width="86"></div></div>
       </div>
       <div class="card-glare"></div>
@@ -1577,8 +1587,8 @@
 
 <!-- ═══════════ PROJECTS ═══════════ -->
 <section id="projects">
-  <div class="section-tag">// PRODUCTION BUILDS</div>
-  <h2 class="section-title">Featured Projects</h2>
+  <div class="section-tag">// S-RANK MISSIONS</div>
+  <h2 class="section-title">Featured Missions (Projects)</h2>
   <div class="projects-grid" id="projects-grid">
     <!-- Injected dynamically via JS -->
   </div>
@@ -1586,8 +1596,8 @@
 
 <!-- ═══════════ EDUCATION & JOURNEY ═══════════ -->
 <section id="education">
-  <div class="section-tag">// ROADMAP</div>
-  <h2 class="section-title">Education & Milestones</h2>
+  <div class="section-tag">// CHRONICLES</div>
+  <h2 class="section-title">Shinobi Roadmap & Journey</h2>
   <div class="timeline">
 
     <div class="timeline-item reveal">
@@ -1597,9 +1607,9 @@
         <div class="timeline-title">B.Tech — Computer Science Engineering</div>
         <div class="timeline-sub">Teerthanker Mahaveer University (TMU), Moradabad</div>
         <ul class="timeline-body">
-          <li>Specializing in full-stack architecture, systems programming, and distributed computing</li>
-          <li>Leading open-source software initiatives and developer student community projects</li>
-          <li>Consistent high academic standing with extensive practical software delivery</li>
+          <li>Mastering full-stack architecture, systems engineering, and low-latency algorithmic designs</li>
+          <li>Building open-source platforms and guiding fellow student developers in technical challenges</li>
+          <li>Consistently deploying high-impact production software for real-world end users</li>
         </ul>
         <div class="card-glare"></div>
       </div>
@@ -1609,12 +1619,12 @@
       <div class="timeline-dot"></div>
       <div class="timeline-card tilt-card">
         <div class="timeline-date">2024 — PRESENT</div>
-        <div class="timeline-title">Founder & Lead Architect — Vindywashini Books</div>
-        <div class="timeline-sub">Desktop & Web FinTech Suite</div>
+        <div class="timeline-title">Architect & Founder — Vindywashini Books</div>
+        <div class="timeline-sub">Desktop Accounting & GST Filing Suite (Electron & React)</div>
         <ul class="timeline-body">
-          <li>Architected modern desktop accounting software with Electron, React, and TypeScript</li>
-          <li>Engineered double-entry bookkeeping engine producing real-time Trial Balance, P&L, and Balance Sheet</li>
-          <li>Implemented dynamic UPI QR codes, multi-format POS thermal invoicing, and automated GSTR-1/3B filing exports</li>
+          <li>Engineered double-entry bookkeeping engine producing instant Trial Balance, P&L, and Balance Sheet</li>
+          <li>Built dynamic UPI QR code generator for instant payments with multi-format POS thermal printing</li>
+          <li>Automated official government GSTR-1 Excel workbooks and GSTR-3B tax return filings</li>
         </ul>
         <div class="card-glare"></div>
       </div>
@@ -1625,11 +1635,11 @@
       <div class="timeline-card tilt-card">
         <div class="timeline-date">2024</div>
         <div class="timeline-title">Lead Developer — SkillNest Platform</div>
-        <div class="timeline-sub">AI Student Marketplace</div>
+        <div class="timeline-sub">AI Student Marketplace & Verification Engine</div>
         <ul class="timeline-body">
-          <li>Architected end-to-end marketplace featuring Google Gemini AI automated skill verification</li>
-          <li>Integrated real-time bidirectional WebSocket chat channels and geospatial peer discovery</li>
-          <li>Built scalable Django REST backend with PostgreSQL and React frontend</li>
+          <li>Integrated Google Gemini AI for automated dynamic student skill testing and evaluation</li>
+          <li>Implemented bidirectional WebSocket messaging for real-time negotiations and session bookings</li>
+          <li>Engineered geospatial peer discovery using spatial Haversine distance calculations</li>
         </ul>
         <div class="card-glare"></div>
       </div>
@@ -1639,11 +1649,11 @@
       <div class="timeline-dot"></div>
       <div class="timeline-card tilt-card">
         <div class="timeline-date">2024</div>
-        <div class="timeline-title">Full-Stack Invoicing Automation — Invoice Generator</div>
-        <div class="timeline-sub">Freelancer Financial Tool</div>
+        <div class="timeline-title">Invoicing Automation — Invoice Generator Pro</div>
+        <div class="timeline-sub">Financial Document Automation Tool</div>
         <ul class="timeline-body">
-          <li>Engineered real-time browser PDF generation, Excel reports, and dynamic payment QR systems</li>
-          <li>Delivered zero-friction client billing workflow integrated with WhatsApp direct transmission</li>
+          <li>Created client billing engine with dynamic UPI QR settlement, PDF generation, and Excel exports</li>
+          <li>Integrated WhatsApp transmission protocol for friction-free invoice dispatching</li>
         </ul>
         <div class="card-glare"></div>
       </div>
@@ -1655,23 +1665,23 @@
 <!-- ═══════════ CONTACT ═══════════ -->
 <section id="contact">
   <div class="contact-inner">
-    <div class="section-tag">// COMM LINK</div>
-    <h2 class="section-title">Let's Build Something Great</h2>
-    <p class="contact-desc reveal">I'm actively looking for software engineering roles, impactful internships, and high-stakes projects. Whether you have a visionary idea, an opportunity, or just want to connect — reach out below.</p>
+    <div class="section-tag">// COMM PROTOCOL</div>
+    <h2 class="section-title">Send a Dispatch</h2>
+    <p class="contact-desc reveal">I am actively open to high-impact software engineering roles, full-stack opportunities, and groundbreaking projects. Reach out directly through the portal below.</p>
     
     <!-- Contact Form -->
     <div class="contact-form-container tilt-card reveal">
       <form id="contact-form">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
           <div class="form-group">
-            <label><i class="fa-solid fa-user"></i> NAME</label>
+            <label><i class="fa-solid fa-user"></i> SHINOBI / NAME</label>
             <div class="input-wrapper">
               <i class="fa-solid fa-user input-icon"></i>
               <input type="text" name="user_name" placeholder="Your Name" required>
             </div>
           </div>
           <div class="form-group">
-            <label><i class="fa-solid fa-envelope"></i> EMAIL</label>
+            <label><i class="fa-solid fa-envelope"></i> EMAIL SCROLL</label>
             <div class="input-wrapper">
               <i class="fa-solid fa-envelope input-icon"></i>
               <input type="email" name="user_email" placeholder="your.email@example.com" required>
@@ -1695,21 +1705,21 @@
           </div>
         </div>
         <div class="form-group">
-          <label><i class="fa-solid fa-briefcase"></i> DESIGNATION / SUBJECT</label>
+          <label><i class="fa-solid fa-briefcase"></i> CLAN / DESIGNATION / SUBJECT</label>
           <div class="input-wrapper">
             <i class="fa-solid fa-briefcase input-icon"></i>
-            <input type="text" name="user_designation" placeholder="e.g. Software Engineer / Recruiter / Founder">
+            <input type="text" name="user_designation" placeholder="e.g. Recruiter / Software Engineer / Founder">
           </div>
         </div>
         <div class="form-group">
-          <label><i class="fa-solid fa-comment-dots"></i> MESSAGE</label>
+          <label><i class="fa-solid fa-comment-dots"></i> SECRET DISPATCH (MESSAGE)</label>
           <div class="input-wrapper">
             <i class="fa-solid fa-comment-dots input-icon textarea-icon"></i>
-            <textarea name="message" rows="4" placeholder="Type your message or project details here..." required></textarea>
+            <textarea name="message" rows="4" placeholder="Transmit your mission details or message..." required></textarea>
           </div>
         </div>
         <button type="submit" class="btn btn-primary" style="width: 100%;">
-          <i class="fa-solid fa-paper-plane"></i> Transmit Message
+          <i class="fa-solid fa-paper-plane"></i> Transmit Scroll
         </button>
       </form>
       <div class="card-glare"></div>
@@ -1718,18 +1728,18 @@
     <!-- Direct Contact Cards -->
     <div class="contact-cards reveal">
       <a href="mailto:hpaditya87857.contact@gmail.com" class="contact-card tilt-card">
-        <div class="contact-card-icon"><i class="fa-solid fa-envelope" style="color: var(--cyan);"></i></div>
-        <div class="contact-card-label">Email</div>
+        <div class="contact-card-icon"><i class="fa-solid fa-envelope" style="color: var(--crimson);"></i></div>
+        <div class="contact-card-label">Email Dispatch</div>
         <div class="contact-card-value">hpaditya87857.contact@gmail.com</div>
         <div class="card-glare"></div>
       </a>
       <a href="tel:7505762707" class="contact-card tilt-card">
-        <div class="contact-card-icon"><i class="fa-solid fa-phone" style="color: var(--cyan);"></i></div>
-        <div class="contact-card-label">Phone</div>
+        <div class="contact-card-icon"><i class="fa-solid fa-phone" style="color: var(--crimson);"></i></div>
+        <div class="contact-card-label">Direct Line</div>
         <div class="contact-card-value">+91 7505762707</div>
         <div class="card-glare"></div>
       </a>
-      <a href="https://wa.me/917505762707?text=Hi%20Aditya%2C%20I%20just%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" target="_blank" class="contact-card whatsapp-card tilt-card">
+      <a href="https://wa.me/917505762707?text=Hi%20Aditya%2C%20I%20just%20saw%20your%20Itachi-themed%20portfolio%20and%20would%20love%20to%20connect!" target="_blank" class="contact-card whatsapp-card tilt-card">
         <div class="contact-card-icon"><i class="fa-brands fa-whatsapp" style="color: #25D366;"></i></div>
         <div class="contact-card-label">WhatsApp</div>
         <div class="contact-card-value">+91 7505762707</div>
@@ -1746,23 +1756,26 @@
         <i class="fa-brands fa-linkedin"></i> LinkedIn
       </a>
       <a href="https://drive.google.com/file/d/1DeB1GMXtY5ID3gzPKjGxzae7SMO62YmT/view?usp=drive_link" target="_blank" class="social-btn btn-primary">
-        <i class="fa-solid fa-file-arrow-down"></i> Resume
+        <i class="fa-solid fa-scroll"></i> Resume Scroll
       </a>
     </div>
   </div>
 </section>
 
 <footer>
-  <span style="color:var(--cyan)">ADITYA KUMAR</span> &nbsp;·&nbsp; ENGINEERED WITH PURPOSE &nbsp;·&nbsp; &copy; 2026 AK-OS
+  <span style="color:var(--crimson)">ADITYA KUMAR</span> &nbsp;·&nbsp; UCHIHA CLAN HERITAGE &nbsp;·&nbsp; &copy; 2026
 </footer>
 
-<!-- ═══════════ FLOATING DOCK ═══════════ -->
+<!-- ═══════════ FLOATING ITACHI DOCK ═══════════ -->
 <div class="quick-dock">
-  <button id="terminalToggleBtn" class="dock-btn" title="Open AK-OS Terminal (` or Ctrl+K)">
+  <button id="genjutsuBtn" class="dock-btn dock-btn-genjutsu" title="Trigger Tsukuyomi Genjutsu">
+    <i class="fa-solid fa-eye"></i> Tsukuyomi Mode
+  </button>
+  <button id="terminalToggleBtn" class="dock-btn" title="Open Itachi CLI Terminal (` or ~)">
     <i class="fa-solid fa-terminal"></i> Terminal <span style="font-size:0.65rem; opacity:0.6;">[~]</span>
   </button>
-  <a href="https://drive.google.com/file/d/1DeB1GMXtY5ID3gzPKjGxzae7SMO62YmT/view?usp=drive_link" target="_blank" class="dock-btn" style="border-color:var(--neon); color:var(--neon);" title="View Resume">
-    <i class="fa-solid fa-file-pdf"></i> Resume
+  <a href="https://drive.google.com/file/d/1DeB1GMXtY5ID3gzPKjGxzae7SMO62YmT/view?usp=drive_link" target="_blank" class="dock-btn" title="View Resume">
+    <i class="fa-solid fa-scroll"></i> Resume
   </a>
 </div>
 
@@ -1775,14 +1788,14 @@
         <span class="dot-yellow"></span>
         <span class="dot-green"></span>
       </div>
-      <div class="terminal-title">AK-OS TERMINAL // CLI MODE v2.5</div>
+      <div class="terminal-title">UCHIHA ITACHI ARCHIVE // CLI MODE v3.0</div>
     </div>
     <div class="terminal-body" id="terminal-output">
-      <div class="terminal-line system-res">AK-OS System Core [Version 2.5.0-Release]</div>
-      <div class="terminal-line dim-res">Type '<span style="color:var(--cyan)">help</span>' to view all available system commands.</div>
+      <div class="terminal-line system-res">ITACHI-OS [Karasu & Tsukuyomi Protocol Active]</div>
+      <div class="terminal-line dim-res">Type '<span style="color:var(--crimson)">help</span>' to view all available jutsu and commands.</div>
     </div>
     <div class="terminal-input-line">
-      <span class="terminal-prompt">guest@ak-os:~$</span>
+      <span class="terminal-prompt">itachi@uchiha:~$</span>
       <input type="text" id="terminal-input" autofocus spellcheck="false">
     </div>
   </div>
@@ -1805,7 +1818,7 @@ const projects = [
     id: 'vindywashini',
     name: 'Vindywashini Books',
     tagline: 'Modern Desktop Accounting, Billing & GST Suite',
-    badge: 'LATEST / FLAGSHIP',
+    badge: '🔥 S-RANK FLAGSHIP',
     badgeType: 'flagship',
     icon: '📚',
     desc: 'An all-in-one desktop and web enterprise application engineered for Indian MSMEs, wholesalers, and retailers. Combines GST-compliant billing, double-entry bookkeeping (Day Book, Trial Balance, P&L, Balance Sheet), real-time inventory tracking with threshold alerts, dynamic UPI QR code payments, multi-format printing (A4, A5, 80mm Thermal POS), and automated GSTR-1 / GSTR-3B Excel & JSON exports into an offline-first experience.',
@@ -1824,7 +1837,7 @@ const projects = [
     id: 'skillnest',
     name: 'SkillNest Platform',
     tagline: 'AI-Driven Student Networking & Skill Verification',
-    badge: 'FEATURED',
+    badge: '⚡ S-RANK MISSION',
     badgeType: 'featured',
     icon: '🚀',
     desc: 'A cutting-edge student networking and marketplace ecosystem. Features automated skill verification powered by Google Gemini AI, location-based peer discovery using geospatial Haversine calculations, bidirectional WebSocket messaging, and a secure session booking marketplace.',
@@ -1842,7 +1855,7 @@ const projects = [
     id: 'invoice',
     name: 'Invoice Generator Pro',
     tagline: 'Full-Stack Invoicing & UPI Automation',
-    badge: 'UTILITY',
+    badge: '📜 A-RANK UTILITY',
     badgeType: 'normal',
     icon: '🧾',
     desc: 'A comprehensive full-stack invoicing solution designed for freelancers and small businesses. Generates pixel-perfect PDF receipts in real time, pre-fills dynamic UPI QR codes for instant mobile settlements, and automates Excel data exports for accounting.',
@@ -1860,7 +1873,7 @@ const projects = [
     id: 'vanaspati',
     name: 'Vanaspati Botanical AI',
     tagline: 'Bilingual Plant Classification & Care Assistant',
-    badge: 'MOBILE / AI',
+    badge: '🌿 A-RANK MOBILE',
     badgeType: 'normal',
     icon: '🌿',
     desc: 'An AI-powered botanical identification mobile application. Users can search by plant name or snap a photo to receive detailed taxonomy, growing seasons, watering schedules, and care guidelines with full bilingual Hindi and English localization.',
@@ -1876,9 +1889,9 @@ const projects = [
   },
   {
     id: 'more',
-    name: 'Open Source & Experimental Labs',
-    tagline: '8+ Public Repositories & Automation Scripts',
-    badge: 'REPOSITORIES',
+    name: 'Shinobi Labs & Open Source',
+    tagline: '8+ Repositories & Algorithmic Experiments',
+    badge: '⚔️ SHINOBI LABS',
     badgeType: 'normal',
     icon: '⚙️',
     desc: 'Exploration of system engineering, automation bots, CLI tools, algorithm implementations, and open-source contributions spanning Python, JavaScript, and systems programming.',
@@ -1906,11 +1919,11 @@ window.addEventListener('load', () => {
     initContactForm();
     initTiltEffects();
     fetchGitHubData();
-    showNotification('system', 'AK-OS NEURAL LINK ESTABLISHED.');
+    showNotification('system', 'MANGEKYOU SHARINGAN AWAKENED.');
   }, 1600);
 });
 
-// ─── 3D THREE.JS SCENE (INTERACTIVE CYBER SPACE) ───────────
+// ─── THREE.JS 3D SCENE (ITACHI TSUKUYOMI, CROWS & BLOOD MOON) ───
 const canvas = document.getElementById('bg-canvas');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -1920,98 +1933,241 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 90;
 
-// 1. Particle Cloud
-const particleCount = 1400;
-const positions = new Float32Array(particleCount * 3);
-const colors = new Float32Array(particleCount * 3);
+// 1. Procedural Mangekyou Texture for the Blood Moon
+function createItachiMangekyouTexture() {
+  const c = document.createElement('canvas');
+  c.width = 512;
+  c.height = 512;
+  const ctx = c.getContext('2d');
+  const cx = 256, cy = 256;
 
-for (let i = 0; i < particleCount; i++) {
-  positions[i * 3] = (Math.random() - 0.5) * 360;
-  positions[i * 3 + 1] = (Math.random() - 0.5) * 360;
-  positions[i * 3 + 2] = (Math.random() - 0.5) * 260;
+  // Outer black ring
+  ctx.fillStyle = '#060002';
+  ctx.beginPath();
+  ctx.arc(cx, cy, 240, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Blood crimson iris
+  const grad = ctx.createRadialGradient(cx, cy, 40, cx, cy, 230);
+  grad.addColorStop(0, '#ff1a3c');
+  grad.addColorStop(0.7, '#cc0022');
+  grad.addColorStop(1, '#55000e');
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.arc(cx, cy, 230, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Concentric iris ring
+  ctx.strokeStyle = 'rgba(255, 80, 110, 0.35)';
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.arc(cx, cy, 140, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Center pupil
+  ctx.fillStyle = '#060002';
+  ctx.beginPath();
+  ctx.arc(cx, cy, 46, 0, Math.PI * 2);
+  ctx.fill();
+
+  // 3 Curved Pinwheel Blades (Itachi's Mangekyou)
+  ctx.fillStyle = '#060002';
+  for (let i = 0; i < 3; i++) {
+    const angle = (i * 2 * Math.PI) / 3;
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(angle);
+
+    ctx.beginPath();
+    ctx.moveTo(0, -38);
+    ctx.bezierCurveTo(45, -70, 115, -145, 65, -210);
+    ctx.bezierCurveTo(35, -220, 10, -195, 5, -165);
+    ctx.bezierCurveTo(0, -110, -20, -70, -25, -38);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  // Center highlight dot
+  ctx.fillStyle = '#ff3355';
+  ctx.beginPath();
+  ctx.arc(cx, cy, 15, 0, Math.PI * 2);
+  ctx.fill();
+
+  return new THREE.CanvasTexture(c);
+}
+
+// 2. The 3D Tsukuyomi Blood Moon
+const moonGroup = new THREE.Group();
+
+const moonGeo = new THREE.SphereGeometry(22, 32, 32);
+const moonMat = new THREE.MeshBasicMaterial({
+  color: 0xff0033,
+  transparent: true,
+  opacity: 0.85
+});
+const moonMesh = new THREE.Mesh(moonGeo, moonMat);
+moonGroup.add(moonMesh);
+
+// Mangekyou Disc projected in front of Moon
+const mangekyouTex = createItachiMangekyouTexture();
+const mangekyouGeo = new THREE.PlaneGeometry(36, 36);
+const mangekyouMat = new THREE.MeshBasicMaterial({
+  map: mangekyouTex,
+  transparent: true,
+  opacity: 0.65,
+  blending: THREE.AdditiveBlending,
+  side: THREE.DoubleSide
+});
+const mangekyouMesh = new THREE.Mesh(mangekyouGeo, mangekyouMat);
+mangekyouMesh.position.z = 2;
+moonGroup.add(mangekyouMesh);
+
+// Glowing Moon Corona Atmosphere
+const coronaGeo = new THREE.SphereGeometry(27, 32, 32);
+const coronaMat = new THREE.MeshBasicMaterial({
+  color: 0xff0033,
+  transparent: true,
+  opacity: 0.22,
+  blending: THREE.AdditiveBlending
+});
+const coronaMesh = new THREE.Mesh(coronaGeo, coronaMat);
+moonGroup.add(coronaMesh);
+
+// Position Moon at top right in 3D space
+moonGroup.position.set(38, 25, -45);
+scene.add(moonGroup);
+
+// 3. 3D Flocking Crows (Karasu Bunshin)
+const crows = [];
+const crowCount = 30;
+
+function create3DCrow() {
+  const crowGroup = new THREE.Group();
+
+  // Crow Body
+  const bodyGeo = new THREE.ConeGeometry(0.5, 3.2, 4);
+  bodyGeo.rotateX(Math.PI / 2);
+  const bodyMat = new THREE.MeshBasicMaterial({ color: 0x050103 });
+  const body = new THREE.Mesh(bodyGeo, bodyMat);
+  crowGroup.add(body);
+
+  // Wing material (deep obsidian with faint crimson tint)
+  const wingMat = new THREE.MeshBasicMaterial({
+    color: 0x140409,
+    side: THREE.DoubleSide
+  });
+
+  // Left Wing
+  const leftWingGeo = new THREE.BufferGeometry();
+  const leftVerts = new Float32Array([
+    0, 0, 0,
+    -3.4, 0.4, -0.8,
+    0, 0, -2.0
+  ]);
+  leftWingGeo.setAttribute('position', new THREE.BufferAttribute(leftVerts, 3));
+  leftWingGeo.computeVertexNormals();
+  const leftWing = new THREE.Mesh(leftWingGeo, wingMat);
+  crowGroup.add(leftWing);
+
+  // Right Wing
+  const rightWingGeo = new THREE.BufferGeometry();
+  const rightVerts = new Float32Array([
+    0, 0, 0,
+    3.4, 0.4, -0.8,
+    0, 0, -2.0
+  ]);
+  rightWingGeo.setAttribute('position', new THREE.BufferAttribute(rightVerts, 3));
+  rightWingGeo.computeVertexNormals();
+  const rightWing = new THREE.Mesh(rightWingGeo, wingMat);
+  crowGroup.add(rightWing);
+
+  return { group: crowGroup, leftWing, rightWing };
+}
+
+for (let i = 0; i < crowCount; i++) {
+  const crow = create3DCrow();
+  const radius = 50 + Math.random() * 80;
+  const angle = Math.random() * Math.PI * 2;
+  const height = (Math.random() - 0.5) * 80;
+
+  crow.group.position.set(
+    Math.cos(angle) * radius,
+    height,
+    Math.sin(angle) * 40 - 20
+  );
+
+  crow.speed = 0.4 + Math.random() * 0.4;
+  crow.flapSpeed = 12 + Math.random() * 8;
+  crow.phase = Math.random() * Math.PI * 2;
+  crow.orbitRadius = radius;
+  crow.angle = angle;
+  crow.orbitSpeed = (Math.random() * 0.008 + 0.004) * (Math.random() > 0.5 ? 1 : -1);
+
+  scene.add(crow.group);
+  crows.push(crow);
+}
+
+// 4. Chakra Embers & Black Feather Particles
+const emberCount = 900;
+const emberPositions = new Float32Array(emberCount * 3);
+const emberColors = new Float32Array(emberCount * 3);
+
+for (let i = 0; i < emberCount; i++) {
+  emberPositions[i * 3] = (Math.random() - 0.5) * 350;
+  emberPositions[i * 3 + 1] = (Math.random() - 0.5) * 350;
+  emberPositions[i * 3 + 2] = (Math.random() - 0.5) * 220;
 
   const rand = Math.random();
-  if (rand > 0.65) {
-    // Cyan
-    colors[i * 3] = 0.0; colors[i * 3 + 1] = 0.96; colors[i * 3 + 2] = 1.0;
-  } else if (rand > 0.35) {
-    // Blue / Azure
-    colors[i * 3] = 0.04; colors[i * 3 + 1] = 0.52; colors[i * 3 + 2] = 1.0;
-  } else if (rand > 0.15) {
-    // Neon Emerald
-    colors[i * 3] = 0.22; colors[i * 3 + 1] = 1.0; colors[i * 3 + 2] = 0.08;
+  if (rand > 0.6) {
+    // Pure Blood Crimson
+    emberColors[i * 3] = 1.0; emberColors[i * 3 + 1] = 0.0; emberColors[i * 3 + 2] = 0.2;
+  } else if (rand > 0.3) {
+    // Ember Flame Orange
+    emberColors[i * 3] = 1.0; emberColors[i * 3 + 1] = 0.3; emberColors[i * 3 + 2] = 0.0;
   } else {
-    // Purple
-    colors[i * 3] = 0.61; colors[i * 3 + 1] = 0.35; colors[i * 3 + 2] = 0.95;
+    // Deep Amaterasu Violet / Shadow
+    emberColors[i * 3] = 0.5; emberColors[i * 3 + 1] = 0.05; emberColors[i * 3 + 2] = 0.7;
   }
 }
 
-const particleGeo = new THREE.BufferGeometry();
-particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-particleGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+const emberGeo = new THREE.BufferGeometry();
+emberGeo.setAttribute('position', new THREE.BufferAttribute(emberPositions, 3));
+emberGeo.setAttribute('color', new THREE.BufferAttribute(emberColors, 3));
 
-const particleMat = new THREE.PointsMaterial({
+const emberMat = new THREE.PointsMaterial({
   vertexColors: true,
-  size: 0.8,
+  size: 1.1,
   transparent: true,
-  opacity: 0.6,
+  opacity: 0.7,
   blending: THREE.AdditiveBlending
 });
-const particles = new THREE.Points(particleGeo, particleMat);
-scene.add(particles);
+const embers = new THREE.Points(emberGeo, emberMat);
+scene.add(embers);
 
-// 2. Floating Cyber Core 3D Geometry
-const cyberGroup = new THREE.Group();
-
-// Outer wireframe crystal
-const icosaGeo = new THREE.IcosahedronGeometry(24, 1);
-const wireMat = new THREE.MeshBasicMaterial({
-  color: 0x00f5ff,
-  wireframe: true,
-  transparent: true,
-  opacity: 0.18
-});
-const icosaMesh = new THREE.Mesh(icosaGeo, wireMat);
-cyberGroup.add(icosaMesh);
-
-// Inner pulsing core
-const coreGeo = new THREE.OctahedronGeometry(13, 0);
-const coreMat = new THREE.MeshBasicMaterial({
-  color: 0x0a84ff,
-  wireframe: true,
-  transparent: true,
-  opacity: 0.35
-});
-const coreMesh = new THREE.Mesh(coreGeo, coreMat);
-cyberGroup.add(coreMesh);
-
-// Orbital ring around core
-const ringGeo = new THREE.RingGeometry(30, 31, 48);
-const ringMat = new THREE.MeshBasicMaterial({
-  color: 0x00f5ff,
-  side: THREE.DoubleSide,
-  transparent: true,
-  opacity: 0.14
-});
-const ringMesh = new THREE.Mesh(ringGeo, ringMat);
-ringMesh.rotation.x = Math.PI / 2.5;
-cyberGroup.add(ringMesh);
-
-cyberGroup.position.set(0, 0, -30);
-scene.add(cyberGroup);
-
-// Mouse and Scroll tracking for 3D Camera Parallax
+// 5. Mouse Parallax & Scroll Depth
 let mouseX = 0, mouseY = 0;
 let targetX = 0, targetY = 0;
 let scrollYPos = 0;
 
 window.addEventListener('mousemove', (e) => {
-  mouseX = (e.clientX - window.innerWidth / 2) * 0.04;
-  mouseY = (e.clientY - window.innerHeight / 2) * 0.04;
+  mouseX = (e.clientX - window.innerWidth / 2) * 0.045;
+  mouseY = (e.clientY - window.innerHeight / 2) * 0.045;
 });
 
 window.addEventListener('scroll', () => {
   scrollYPos = window.scrollY || window.pageYOffset;
+});
+
+// Click interaction: Spawns sudden crow scatter towards camera
+window.addEventListener('click', (e) => {
+  if (e.target.closest('a, button, input, textarea')) return;
+  // Scatter nearest crows
+  crows.forEach(crow => {
+    crow.angle += (Math.random() - 0.5) * 0.5;
+    crow.group.position.y += (Math.random() - 0.5) * 20;
+  });
 });
 
 let clock = new THREE.Clock();
@@ -2027,23 +2183,43 @@ function animate3D() {
   camera.position.x = targetX;
   camera.position.y = -targetY;
 
-  // Camera depth responds to scroll
+  // Scroll affects camera depth
   const scrollOffset = (scrollYPos / (document.documentElement.scrollHeight - window.innerHeight || 1)) * 40;
-  camera.position.z = 90 - scrollOffset * 0.3;
+  camera.position.z = 90 - scrollOffset * 0.35;
 
-  // Rotate particles gently
-  particles.rotation.y = elapsedTime * 0.02 + (scrollYPos * 0.0003);
-  particles.rotation.x = Math.sin(elapsedTime * 0.01) * 0.08;
+  // Animate Blood Moon
+  mangekyouMesh.rotation.z = -elapsedTime * 0.12;
+  coronaMesh.scale.setScalar(1 + Math.sin(elapsedTime * 1.5) * 0.05);
 
-  // Animate 3D Cyber Core
-  icosaMesh.rotation.x = elapsedTime * 0.12;
-  icosaMesh.rotation.y = elapsedTime * 0.15;
-  coreMesh.rotation.x = -elapsedTime * 0.2;
-  coreMesh.rotation.y = -elapsedTime * 0.25;
-  ringMesh.rotation.z = elapsedTime * 0.08;
+  // Animate 3D Crows (flapping & natural flight paths)
+  crows.forEach(crow => {
+    crow.angle += crow.orbitSpeed;
+    const x = Math.cos(crow.angle) * crow.orbitRadius;
+    const z = Math.sin(crow.angle) * (crow.orbitRadius * 0.6) - 15;
+    
+    // Smooth banking
+    crow.group.position.x = x;
+    crow.group.position.z = z;
+    crow.group.position.y += Math.sin(elapsedTime * 2 + crow.phase) * 0.08;
 
-  // Floating hover movement
-  cyberGroup.position.y = Math.sin(elapsedTime * 0.8) * 4;
+    // Orient crow towards direction of flight
+    const nextAngle = crow.angle + crow.orbitSpeed * 3;
+    const targetLook = new THREE.Vector3(
+      Math.cos(nextAngle) * crow.orbitRadius,
+      crow.group.position.y,
+      Math.sin(nextAngle) * (crow.orbitRadius * 0.6) - 15
+    );
+    crow.group.lookAt(targetLook);
+
+    // Flap wings
+    const flap = Math.sin(elapsedTime * crow.flapSpeed + crow.phase) * 0.65;
+    crow.leftWing.rotation.z = flap;
+    crow.rightWing.rotation.z = -flap;
+  });
+
+  // Embers drift upwards like burning ashes
+  embers.rotation.y = elapsedTime * 0.015 + (scrollYPos * 0.0003);
+  embers.rotation.x = Math.sin(elapsedTime * 0.01) * 0.06;
 
   renderer.render(scene, camera);
 }
@@ -2055,10 +2231,31 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
+// ─── TSUKUYOMI GENJUTSU TRIGGER ────────────────────────────
+const genjutsuBtn = document.getElementById('genjutsuBtn');
+let tsukuyomiActive = false;
+
+function toggleTsukuyomi() {
+  tsukuyomiActive = !tsukuyomiActive;
+  document.body.classList.toggle('tsukuyomi-active', tsukuyomiActive);
+  document.body.classList.add('trigger-genjutsu');
+  setTimeout(() => document.body.classList.remove('trigger-genjutsu'), 850);
+
+  if (tsukuyomiActive) {
+    showNotification('system', 'TSUKUYOMI ACTIVATED. 72 HOURS IN 1 SECOND.');
+    genjutsuBtn.innerHTML = '<i class="fa-solid fa-eye-slash"></i> Release Genjutsu';
+    moonGroup.scale.set(1.4, 1.4, 1.4);
+  } else {
+    showNotification('system', 'GENJUTSU DISPELLED (KAI). REALITY RESTORED.');
+    genjutsuBtn.innerHTML = '<i class="fa-solid fa-eye"></i> Tsukuyomi Mode';
+    moonGroup.scale.set(1.0, 1.0, 1.0);
+  }
+}
+if (genjutsuBtn) genjutsuBtn.addEventListener('click', toggleTsukuyomi);
+
 // ─── 3D TILT EFFECT ON CARDS ───────────────────────────────
 function initTiltEffects() {
   const cards = document.querySelectorAll('.tilt-card');
-  
   cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
@@ -2067,15 +2264,15 @@ function initTiltEffects() {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      const rotateX = ((y - centerY) / centerY) * -8;
-      const rotateY = ((x - centerX) / centerX) * 8;
+      const rotateX = ((y - centerY) / centerY) * -9;
+      const rotateY = ((x - centerX) / centerX) * 9;
       
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale3d(1.02, 1.02, 1.02)`;
       
       const glare = card.querySelector('.card-glare');
       if (glare) {
         glare.style.opacity = '1';
-        glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(0, 245, 255, 0.2), transparent 65%)`;
+        glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 0, 51, 0.22), transparent 65%)`;
       }
     });
 
@@ -2103,7 +2300,7 @@ function initProjects() {
 
     card.innerHTML = `
       <div class="project-card-image-wrap">
-        <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/800x450/020509/00f5ff?text=${encodeURIComponent(p.name)}'">
+        <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/800x450/0a0205/ff0033?text=${encodeURIComponent(p.name)}'">
         <div class="project-card-image-overlay"></div>
         ${badgeHtml}
         <div class="project-num">0${index + 1}</div>
@@ -2113,7 +2310,7 @@ function initProjects() {
           <div class="project-icon">${p.icon}</div>
           <div>
             <div class="project-name">${p.name}</div>
-            <div style="font-family:'Share Tech Mono',monospace; font-size:0.75rem; color:var(--cyan);">${p.tagline}</div>
+            <div style="font-family:var(--font-code); font-size:0.75rem; color:#ff4d6d;">${p.tagline}</div>
           </div>
         </div>
         <div class="project-desc">${p.desc.substring(0, 130)}...</div>
@@ -2124,11 +2321,11 @@ function initProjects() {
         <div class="project-actions">
           ${p.live ? `
             <a href="${p.live}" target="_blank" class="btn-card-action btn-card-live" title="Open Live Web Application">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Jutsu
             </a>
           ` : ''}
           <a href="${p.github}" target="_blank" class="btn-card-action btn-card-code" title="View Source Code on GitHub">
-            <i class="fa-brands fa-github"></i> Code
+            <i class="fa-brands fa-github"></i> Scroll
           </a>
           <button type="button" class="btn-card-action btn-card-details" title="Inspect Full Specifications">
             <i class="fa-solid fa-circle-info"></i> Details
@@ -2138,17 +2335,13 @@ function initProjects() {
       <div class="card-glare"></div>
     `;
 
-    // Clicking card opens modal unless clicking a link
     card.addEventListener('click', (e) => {
-      if (!e.target.closest('a')) {
-        openProjectModal(p.id);
-      }
+      if (!e.target.closest('a')) openProjectModal(p.id);
     });
 
     grid.appendChild(card);
   });
 
-  // Rebind tilt to newly injected project cards
   initTiltEffects();
 }
 
@@ -2163,7 +2356,7 @@ function openProjectModal(id) {
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal()" title="Close">&times;</button>
       <div class="modal-image-container">
-        <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/900x450/020509/00f5ff?text=${encodeURIComponent(p.name)}'">
+        <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/900x450/0a0205/ff0033?text=${encodeURIComponent(p.name)}'">
       </div>
       <div class="modal-details">
         <div class="modal-header">
@@ -2178,15 +2371,15 @@ function openProjectModal(id) {
 
         ${p.highlights ? `
           <div style="margin-bottom: 28px;">
-            <h4 style="font-family:'Share Tech Mono',monospace; color:var(--cyan); margin-bottom:12px; letter-spacing:2px;">KEY ARCHITECTURAL HIGHLIGHTS</h4>
+            <h4 style="font-family:var(--font-code); color:var(--crimson); margin-bottom:12px; letter-spacing:2px;">MISSION ARCHITECTURAL HIGHLIGHTS</h4>
             <ul style="list-style:none; padding-left:0; font-size:0.92rem; color:var(--text-dim); line-height:1.7;">
-              ${p.highlights.map(h => `<li style="margin-bottom:8px; padding-left:18px; position:relative;"><span style="position:absolute; left:0; color:var(--cyan);">▸</span>${h}</li>`).join('')}
+              ${p.highlights.map(h => `<li style="margin-bottom:8px; padding-left:18px; position:relative;"><span style="position:absolute; left:0; color:var(--crimson);">▸</span>${h}</li>`).join('')}
             </ul>
           </div>
         ` : ''}
 
         <div class="modal-tech">
-          <h4>SYSTEM TECH STACK</h4>
+          <h4>TECH STACK & TOOLS</h4>
           <div class="stack-grid">
             ${p.stack.map(s => `<span class="stack-badge" style="font-size:0.8rem; padding:5px 12px;">${s}</span>`).join('')}
           </div>
@@ -2195,11 +2388,11 @@ function openProjectModal(id) {
         <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px;">
           ${p.live ? `
             <a href="${p.live}" target="_blank" class="btn btn-primary">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> Launch Live App
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Launch Live Application
             </a>
           ` : ''}
           <a href="${p.github}" target="_blank" class="btn btn-outline">
-            <i class="fa-brands fa-github"></i> Inspect Repository
+            <i class="fa-brands fa-github"></i> Inspect GitHub Repository
           </a>
         </div>
       </div>
@@ -2215,7 +2408,6 @@ function closeModal() {
   document.body.style.overflow = 'auto';
 }
 
-// Close modal on outside click or Escape key
 document.getElementById('project-modal').addEventListener('click', (e) => {
   if (e.target.id === 'project-modal') closeModal();
 });
@@ -2223,7 +2415,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
 });
 
-// ─── CURSOR LOGIC ──────────────────────────────────────────
+// ─── SHARINGAN CURSOR LOGIC ────────────────────────────────
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
 let mx = 0, my = 0, rx = 0, ry = 0;
@@ -2237,8 +2429,8 @@ document.addEventListener('mousemove', e => {
 });
 
 (function animateCursor() {
-  rx += (mx - rx) * 0.15;
-  ry += (my - ry) * 0.15;
+  rx += (mx - rx) * 0.16;
+  ry += (my - ry) * 0.16;
   if (ring) {
     ring.style.left = rx + 'px';
     ring.style.top = ry + 'px';
@@ -2251,8 +2443,8 @@ document.addEventListener('mouseover', e => {
     if (ring) {
       ring.style.width = '55px';
       ring.style.height = '55px';
-      ring.style.borderColor = 'rgba(0, 245, 255, 0.85)';
-      ring.style.backgroundColor = 'rgba(0, 245, 255, 0.05)';
+      ring.style.borderColor = 'rgba(255, 0, 51, 0.9)';
+      ring.style.transform = 'translate(-50%,-50%) rotate(180deg)';
     }
     if (cursor) cursor.style.transform = 'translate(-50%,-50%) scale(1.6)';
   }
@@ -2260,10 +2452,10 @@ document.addEventListener('mouseover', e => {
 document.addEventListener('mouseout', e => {
   if (e.target.closest('a, button, .tilt-card, input, textarea, .contact-card')) {
     if (ring) {
-      ring.style.width = '38px';
-      ring.style.height = '38px';
-      ring.style.borderColor = 'rgba(0, 245, 255, 0.45)';
-      ring.style.backgroundColor = 'transparent';
+      ring.style.width = '42px';
+      ring.style.height = '42px';
+      ring.style.borderColor = 'rgba(255, 0, 51, 0.6)';
+      ring.style.transform = 'translate(-50%,-50%) rotate(0deg)';
     }
     if (cursor) cursor.style.transform = 'translate(-50%,-50%) scale(1)';
   }
@@ -2305,7 +2497,6 @@ function initTerminal() {
   if (toggleBtn) toggleBtn.addEventListener('click', toggleTerminal);
   if (closeBtn) closeBtn.addEventListener('click', toggleTerminal);
 
-  // Global hotkey: backtick (`) or tilde (~) or Ctrl+K
   document.addEventListener('keydown', (e) => {
     if ((e.key === '`' || e.key === '~') && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
       e.preventDefault();
@@ -2321,37 +2512,48 @@ function initTerminal() {
       const val = input.value.trim().toLowerCase();
       const line = document.createElement('div');
       line.className = 'terminal-line user-cmd';
-      line.textContent = `guest@ak-os:~$ ${val}`;
+      line.textContent = `itachi@uchiha:~$ ${val}`;
       output.appendChild(line);
 
       if (val === 'help') {
-        appendOutput('Available Commands:');
-        appendOutput('  ▸ about        - Brief biography & background', 'system-res');
-        appendOutput('  ▸ skills       - Summary of core tech stack & frameworks', 'system-res');
-        appendOutput('  ▸ projects     - List production projects with links', 'system-res');
-        appendOutput('  ▸ vindywashini - Deep-dive on flagship desktop accounting app', 'accent-res');
-        appendOutput('  ▸ resume       - Direct link to current resume PDF', 'accent-res');
-        appendOutput('  ▸ contact      - Direct comms lines (Email, WhatsApp, Phone)', 'system-res');
-        appendOutput('  ▸ clear        - Clear terminal history', 'dim-res');
+        appendOutput('Available Jutsu & Commands:');
+        appendOutput('  ▸ about        - Biography & shinobi background', 'system-res');
+        appendOutput('  ▸ skills       - Chakra elements & tech capabilities', 'system-res');
+        appendOutput('  ▸ projects     - S-Rank Missions with live and GitHub links', 'system-res');
+        appendOutput('  ▸ vindywashini - Flagship Desktop Accounting & GST Suite details', 'accent-res');
+        appendOutput('  ▸ tsukuyomi    - Toggle the Tsukuyomi Genjutsu reality distortion', 'accent-res');
+        appendOutput('  ▸ crows        - Summon an explosive flock of Karasu', 'accent-res');
+        appendOutput('  ▸ resume       - Retrieve official Ninja Scroll (Resume PDF)', 'system-res');
+        appendOutput('  ▸ quote        - Words of wisdom from Itachi Uchiha', 'dim-res');
+        appendOutput('  ▸ contact      - Direct lines of communication', 'system-res');
+        appendOutput('  ▸ clear        - Clear terminal scroll', 'dim-res');
         appendOutput('  ▸ exit         - Close this terminal session', 'dim-res');
       } else if (val === 'about') {
         appendOutput('Aditya Kumar — Software Engineer & Full-Stack Architect.', 'system-res');
         appendOutput('B.Tech in Computer Science & Engineering @ Teerthanker Mahaveer University (TMU).', 'dim-res');
-        appendOutput('Focus: High-availability web systems, offline-first desktop applications, and AI integrations.', 'dim-res');
+        appendOutput('Specialty: High-performance systems, offline-first desktop apps, and AI integration.', 'dim-res');
       } else if (val === 'skills') {
-        appendOutput('LANGUAGES: Python, JavaScript (ES6+), TypeScript, Java, C++', 'system-res');
-        appendOutput('FRONTEND & DESKTOP: React.js, Electron, Tailwind CSS, Three.js, Vite', 'system-res');
-        appendOutput('BACKEND & DB: Django, Node.js, Express, PostgreSQL, WebSockets, SQLite', 'system-res');
+        appendOutput('KATON (Languages): Python, JavaScript, TypeScript, Java, C++', 'system-res');
+        appendOutput('RAITON (Frontend/3D): React.js, Electron, Tailwind CSS, Three.js, Vite', 'system-res');
+        appendOutput('YIN (Backend): Django, Node.js, Express, PostgreSQL, WebSockets, SQLite', 'system-res');
       } else if (val === 'projects') {
         appendOutput('1. Vindywashini Books [Desktop/Web Accounting & GST Suite] -> https://vindywashini-books.vercel.app/', 'accent-res');
         appendOutput('2. SkillNest [Student Marketplace with Gemini AI] -> https://github.com/Aditya-tmu/SkillNest', 'system-res');
         appendOutput('3. Invoice Generator Pro [Invoicing & UPI QR] -> https://github.com/Aditya-tmu/invoice-generator', 'system-res');
         appendOutput('4. Vanaspati [Botanical Care & Identification] -> https://github.com/Aditya-tmu/Vanaspati', 'system-res');
       } else if (val === 'vindywashini') {
-        appendOutput('⚡ VINDYWASHINI BOOKS ⚡', 'accent-res');
-        appendOutput('Desktop Accounting, Billing, and GST Filing Suite built for Indian MSMEs.', 'system-res');
+        appendOutput('🔥 VINDYWASHINI BOOKS [S-RANK] 🔥', 'accent-res');
+        appendOutput('Modern Desktop Accounting, Billing, and GST Filing Software for Indian MSMEs.', 'system-res');
         appendOutput('Live Web App: https://vindywashini-books.vercel.app/', 'system-res');
         appendOutput('GitHub Repo: https://github.com/Aditya-tmu/Vindywashini-Books', 'system-res');
+      } else if (val === 'tsukuyomi' || val === 'genjutsu') {
+        toggleTsukuyomi();
+        appendOutput('Tsukuyomi Genjutsu triggered! Observe reality distort.', 'accent-res');
+      } else if (val === 'crows') {
+        crows.forEach(c => { c.group.position.y += (Math.random() - 0.5) * 30; });
+        appendOutput('Karasu Bunshin summoned. The flock takes to the sky!', 'accent-res');
+      } else if (val === 'quote') {
+        appendOutput('"We do not know what kind of people we truly are until the moment before our deaths."', 'accent-res');
       } else if (val === 'resume') {
         appendOutput('Accessing official Google Drive resume document...', 'accent-res');
         appendOutput('URL: https://drive.google.com/file/d/1DeB1GMXtY5ID3gzPKjGxzae7SMO62YmT/view?usp=drive_link', 'system-res');
@@ -2368,7 +2570,7 @@ function initTerminal() {
       } else if (val === '') {
         // do nothing
       } else {
-        appendOutput(`Command not recognized: "${val}". Type 'help' for command list.`, 'dim-res');
+        appendOutput(`Jutsu not recognized: "${val}". Type 'help' for command list.`, 'dim-res');
       }
 
       input.value = '';
@@ -2393,18 +2595,18 @@ function initContactForm() {
     e.preventDefault();
     const btn = form.querySelector('button');
     const originalText = btn.innerHTML;
-    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Transmitting Message...';
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Transmitting Dispatch...';
     btn.disabled = true;
 
     try {
       emailjs.init("p9IPVMT5xy5-sN8m6");
       emailjs.sendForm("service_al0a43q", "template_47xkkwc", form)
         .then(() => {
-          showNotification('success', 'Transmission received! I will reply shortly.');
+          showNotification('success', 'Dispatch received! I will reply shortly.');
           form.reset();
         }, err => {
           console.error("EmailJS Error:", err);
-          showNotification('error', 'Transmission timed out. You can also reach me via WhatsApp or email directly.');
+          showNotification('error', 'Transmission timed out. Connect via WhatsApp or email directly.');
         })
         .finally(() => {
           btn.innerHTML = originalText;
@@ -2413,7 +2615,7 @@ function initContactForm() {
     } catch (err) {
       btn.innerHTML = originalText;
       btn.disabled = false;
-      showNotification('error', 'Transmission error. Please email directly.');
+      showNotification('error', 'Dispatch error. Please email directly.');
     }
   });
 }
@@ -2426,7 +2628,7 @@ function showNotification(type, message) {
   n.className = `notification notification-${type}`;
   n.innerHTML = `
     <div style="font-size:1.3rem; color:var(--border-color);">
-      ${type === 'success' ? '<i class="fa-solid fa-circle-check"></i>' : (type === 'error' ? '<i class="fa-solid fa-triangle-exclamation"></i>' : '<i class="fa-solid fa-satellite-dish"></i>')}
+      ${type === 'success' ? '<i class="fa-solid fa-circle-check"></i>' : (type === 'error' ? '<i class="fa-solid fa-triangle-exclamation"></i>' : '<i class="fa-solid fa-eye"></i>')}
     </div>
     <div class="notification-content">
       <div class="notification-title">${type.toUpperCase()} PROTOCOL</div>
@@ -2444,10 +2646,10 @@ function showNotification(type, message) {
 
 // ─── TYPED TEXT EFFECT ─────────────────────────────────────
 const lines = [
-  'Building high-performance scalable systems.',
+  'Building high-performance scalable architectures.',
   'Architecting desktop apps with Electron & React.',
   'Engineering double-entry financial & billing suites.',
-  'Integrating AI models for automated problem-solving.'
+  'Weaving code through the art of systems engineering.'
 ];
 let li = 0, ci = 0, deleting = false;
 function typeEffect() {
@@ -2472,14 +2674,12 @@ function initAnimations() {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
 
-        // Animate skill progress bars
         if (entry.target.id === 'skills') {
           entry.target.querySelectorAll('.skill-fill').forEach(bar => {
             bar.style.width = bar.getAttribute('data-width') + '%';
           });
         }
 
-        // Animate numbers
         entry.target.querySelectorAll('.stat-num').forEach(el => {
           if (el.dataset.animated) return;
           el.dataset.animated = "true";
