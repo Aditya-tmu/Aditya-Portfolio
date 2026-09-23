@@ -57,4 +57,7 @@ This system is ready for zero-configuration hosting on **GitHub Pages**, **Verce
   <a href="https://github.com/Aditya-tmu">
     <img src="https://img.shields.io/badge/GitHub-Profile-white?style=flat-square&logo=github" />
   </a>
+  <a href="https://x.com/RealAdityaUpadh">
+    <img src="https://img.shields.io/badge/X-Profile-black?style=flat-square&logo=x" />
+  </a>
 </div>
